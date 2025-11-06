@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Nabila Sayang❤️</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&family=Caveat:wght@400;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #a18cd1 50%, #fbc2eb 75%, #a6c1ee 100%);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            animation: gradientShift 15s ease infinite;
+            background-size: 400% 400%;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #fff, #f8bbd0, #e1bee7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+            100% { filter: drop-shadow(0 0 8px rgba(255,255,255,0.8)) drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        }
+        
+        .subtitle {
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #f8bbd0;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.3);
+            animation: subtitlePulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes subtitlePulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+        
+        .gallery-btn {
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .gallery-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .photo-slot {
+            aspect-ratio: 1;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .photo-slot:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .photo-slot i {
+            font-size: 2rem;
+            color: #e1bee7;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .photo-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-slot .remove-photo {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #e91e63;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-slot:hover .remove-photo {
+            opacity: 1;
+        }
+        
+        .photo-slot .remove-photo i {
+            font-size: 16px;
+            color: #e91e63;
+        }
+        
+        .save-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .save-notification.show {
+            transform: translateX(0);
+        }
+        
+        .save-notification i {
+            font-size: 1.2rem;
+        }
+        
+        .messages-section {
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease;
+        }
+        
+        .message-title {
+            font-family: 'Caveat', cursive;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.3);
+            animation: titleFloat 5s ease-in-out infinite;
+        }
+        
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .message-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .message-btn {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .message-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .message-btn .emoji {
+            font-size: 1.2rem;
+        }
+        
+        .message-content {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .message-content.active {
+            display: block;
+        }
+        
+        .message-content h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #f8bbd0;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .message-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .message-content .emoji {
+            font-size: 1.5rem;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        .motivation-message {
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            animation: fadeIn 2.5s ease;
+            color: #fff;
+            font-family: 'Comfortaa', cursive;
+            text-shadow: 0 0 8px rgba(0,0,0,0.7);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .motivation-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,154,158,0.2), rgba(161,140,209,0.2));
+            z-index: -1;
+            animation: shimmer 8s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.3; }
+        }
+        
+        .countdown {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 3s ease;
+        }
+        
+        .countdown-title {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.3);
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .time-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #f8bbd0, #e1bee7);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .time-value:hover {
+            transform: scale(1.1);
+        }
+        
+        .time-label {
+            font-size: 0.9rem;
+            color: #f8bbd0;
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            animation: fadeIn 3.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(161,140,209,0.2), rgba(166,193,238,0.2));
+            z-index: -1;
+            animation: shimmer 8s infinite;
+        }
+        
+        .footer-message {
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(0,0,0,0.7);
+        }
+        
+        .footer-signature {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            margin-top: 15px;
+            font-weight: 700;
+            color: #f8bbd0;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .heart-icon {
+            font-size: 1.5rem;
+            color: #e91e63;
+            filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+        
+        .anniversary-message {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #a18cd1 50%, #fbc2eb 75%, #a6c1ee 100%);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .anniversary-message.active {
+            display: flex;
+        }
+        
+        .anniversary-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            background: linear-gradient(45deg, #fff, #f8bbd0, #e1bee7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5), 0 0 15px rgba(0,0,0,0.3);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            animation: pulse 2s infinite;
+        }
+        
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: float 10s infinite linear;
+        }
+        
+        /* Interactive elements */
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: floatUp 4s ease-out forwards;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(1.5);
+            }
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: sparkle 1.5s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Floating shapes for background */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background-color: #ff9a9e;
+            top: -100px;
+            left: -100px;
+            animation: float-shape 20s infinite alternate ease-in-out;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background-color: #a18cd1;
+            bottom: -50px;
+            right: -50px;
+            animation: float-shape 15s infinite alternate-reverse ease-in-out;
+        }
+        
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            background-color: #a6c1ee;
+            top: 50%;
+            left: -100px;
+            animation: float-shape 18s infinite alternate ease-in-out;
+        }
+        
+        @keyframes float-shape {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(30px, 30px) rotate(20deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .gallery-controls {
+                flex-wrap: wrap;
+            }
+            
+            .gallery-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .photo-slot i {
+                font-size: 1.5rem;
+            }
+            
+            .message-title {
+                font-size: 1.8rem;
+            }
+            
+            .message-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .message-btn {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .message-content {
+                padding: 15px;
+            }
+            
+            .message-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .message-content p {
+                font-size: 1rem;
+            }
+            
+            .motivation-message {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+            
+            .countdown-title {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-timer {
+                gap: 15px;
+            }
+            
+            .time-value {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .time-label {
+                font-size: 0.8rem;
+            }
+            
+            .footer-message {
+                font-size: 1rem;
+            }
+            
+            .footer-signature {
+                font-size: 1.2rem;
+            }
+            
+            .anniversary-text {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .gallery-controls {
+                flex-wrap: wrap;
+            }
+            
+            .gallery-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .photo-slot i {
+                font-size: 1.2rem;
+            }
+            
+            .message-title {
+                font-size: 1.5rem;
+            }
+            
+            .message-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .message-btn {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+            
+            .message-content {
+                padding: 12px;
+            }
+            
+            .message-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .message-content p {
+                font-size: 0.9rem;
+            }
+            
+            .motivation-message {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            .countdown-title {
+                font-size: 1.3rem;
+            }
+            
+            .countdown-timer {
+                gap: 10px;
+            }
+            
+            .time-value {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .time-label {
+                font-size: 0.7rem;
+            }
+            
+            .footer-message {
+                font-size: 0.9rem;
+            }
+            
+            .footer-signature {
+                font-size: 1rem;
+            }
+            
+            .anniversary-text {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .container {
+                max-width: 900px;
+            }
+            
+            .title {
+                font-size: 4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.7rem;
+            }
+            
+            .gallery {
+                gap: 20px;
+            }
+            
+            .photo-slot i {
+                font-size: 2.5rem;
+            }
+            
+            .message-title {
+                font-size: 2.5rem;
+            }
+            
+            .message-btn {
+                padding: 18px;
+                font-size: 1.1rem;
+            }
+            
+            .message-content {
+                padding: 25px;
+            }
+            
+            .message-content h3 {
+                font-size: 2rem;
+            }
+            
+            .message-content p {
+                font-size: 1.2rem;
+            }
+            
+            .motivation-message {
+                font-size: 1.5rem;
+                padding: 30px;
+            }
+            
+            .countdown-title {
+                font-size: 2rem;
+            }
+            
+            .countdown-timer {
+                gap: 25px;
+            }
+            
+            .time-value {
+                width: 80px;
+                height: 80px;
+                font-size: 3rem;
+            }
+            
+            .time-label {
+                font-size: 1rem;
+            }
+            
+            .footer-message {
+                font-size: 1.4rem;
+            }
+            
+            .footer-signature {
+                font-size: 1.6rem;
+            }
+            
+            .anniversary-text {
+                font-size: 6rem;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1100px;
+            }
+            
+            .title {
+                font-size: 4.5rem;
+            }
+            
+            .subtitle {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                gap: 25px;
+            }
+            
+            .photo-slot i {
+                font-size: 3rem;
+            }
+            
+            .message-title {
+                font-size: 2.8rem;
+            }
+            
+            .message-btn {
+                padding: 20px;
+                font-size: 1.2rem;
+            }
+            
+            .message-content {
+                padding: 30px;
+            }
+            
+            .message-content h3 {
+                font-size: 2.3rem;
+            }
+            
+            .message-content p {
+                font-size: 1.3rem;
+            }
+            
+            .motivation-message {
+                font-size: 1.7rem;
+                padding: 35px;
+            }
+            
+            .countdown-title {
+                font-size: 2.2rem;
+            }
+            
+            .countdown-timer {
+                gap: 30px;
+            }
+            
+            .time-value {
+                width: 90px;
+                height: 90px;
+                font-size: 3.5rem;
+            }
+            
+            .time-label {
+                font-size: 1.1rem;
+            }
+            
+            .footer-message {
+                font-size: 1.6rem;
+            }
+            
+            .footer-signature {
+                font-size: 1.8rem;
+            }
+            
+            .anniversary-text {
+                font-size: 7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    
+    <div class="floating-hearts" id="floatingHearts"></div>
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Untuk Nabila Sayang❤️</h1>
+            <p class="subtitle">dari Rapli untuk Nabila</p>
+        </header>
+        
+        <section class="gallery-section">
+            <div class="gallery-controls">
+                <button class="gallery-btn" onclick="saveGallery()">
+                    <i class="material-icons">save</i>
+                    <span>Save Gallery</span>
+                </button>
+                <button class="gallery-btn" onclick="clearGallery()">
+                    <i class="material-icons">clear_all</i>
+                    <span>Clear All</span>
+                </button>
+            </div>
+            
+            <div class="gallery" id="gallery">
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+                <div class="photo-slot" onclick="addPhoto(this)">
+                    <i class="material-icons">add_photo_alternate</i>
+                </div>
+            </div>
+        </section>
+        
+        <section class="messages-section">
+            <h2 class="message-title">Pesan Spesial Untukmu</h2>
+            <div class="message-buttons">
+                <button class="message-btn" onclick="showMessage(1)">
+                    <span>Pesan 1</span>
+                    <span class="emoji">💪</span>
+                </button>
+                <button class="message-btn" onclick="showMessage(2)">
+                    <span>Pesan 2</span>
+                    <span class="emoji">✨</span>
+                </button>
+                <button class="message-btn" onclick="showMessage(3)">
+                    <span>Pesan 3</span>
+                    <span class="emoji">🤗</span>
+                </button>
+                <button class="message-btn" onclick="showMessage(4)">
+                    <span>Pesan 4</span>
+                    <span class="emoji">🤝</span>
+                </button>
+                <button class="message-btn" onclick="showMessage(5)">
+                    <span>Pesan 5</span>
+                    <span class="emoji">💕</span>
+                </button>
+                <button class="message-btn" onclick="showMessage(6)">
+                    <span>Pesan 6</span>
+                    <span class="emoji">🌟</span>
+                </button>
+            </div>
+            
+            <div id="message1" class="message-content">
+                <h3>Pesan Pertama</h3>
+                <p>Semangat sayangggkuuuu <span class="emoji">💪</span></p>
+            </div>
+            
+            <div id="message2" class="message-content">
+                <h3>Pesan Kedua</h3>
+                <p>kamu itu berhak bahagia, jangan biarin orang seenaknya ya ke kamu! <span class="emoji">✨</span></p>
+            </div>
+            
+            <div id="message3" class="message-content">
+                <h3>Pesan Ketiga</h3>
+                <p>ceritain dan kasih semua seneng kamu, bahagia kamu, sedih kamu, dan nangis kamu ke aku yaaa! jangan disimpen sendiri, aku cowo kamuuuu <span class="emoji">🤗</span></p>
+            </div>
+            
+            <div id="message4" class="message-content">
+                <h3>Pesan Keempat</h3>
+                <p>yuk bareng-bareng berjuang buat hubungan ini!, jangan sampe kalah sama ego, apalagi sampe orang lain atau temen kamu masuk buat ngatur hubungan kita! <span class="emoji">🤝</span></p>
+            </div>
+            
+            <div id="message5" class="message-content">
+                <h3>Pesan Kelima</h3>
+                <p>Love youuuu sayangkuuuu <span class="emoji">💕</span></p>
+            </div>
+            
+            <div id="message6" class="message-content">
+                <h3>Pesan Keenam</h3>
+                <p>Jangan berubah lagi ya! tetep kaya hubungan sekarang dan diri kamu yang sekarang! <span class="emoji">🌟</span></p>
+            </div>
+        </section>
+        
+        <section class="countdown">
+            <h2 class="countdown-title">Menghitung Hari Menuju Hari Spesial Kita</h2>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <div class="time-value" id="days">00</div>
+                    <div class="time-label">Hari</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="hours">00</div>
+                    <div class="time-label">Jam</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="minutes">00</div>
+                    <div class="time-label">Menit</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="seconds">00</div>
+                    <div class="time-label">Detik</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="motivation-message">
+            <p>Karena kamu, aku bisa semangat dan sabar ngejalanin semuanya, karena kamu, aku bisa ngehargain diri sendiri, dan karena kamu yang ngasih aku banyak pengalaman.</p>
+        </section>
+        
+        <footer class="footer">
+            <p class="footer-message">Terima kasih sudah menjadi bagian terindah dalam hidupku. Aku akan selalu mencintaimu, sekarang dan selamanya.</p>
+            <span class="heart-icon">❤️</span>
+            <p class="footer-signature">Dari Rapli untuk Nabila</p>
+        </footer>
+    </div>
+    
+    <div class="anniversary-message" id="anniversaryMessage">
+        <div class="hearts-container" id="heartsContainer"></div>
+        <h1 class="anniversary-text">Happy Anniversary</h1>
+    </div>
+    
+    <div class="save-notification" id="saveNotification">
+        <i class="material-icons">check_circle</i>
+        <span>Gallery berhasil disimpan!</span>
+    </div>
+    
+    <script>
+        // Function to show message
+        function showMessage(messageNumber) {
+            // Hide all messages
+            const messages = document.querySelectorAll('.message-content');
+            messages.forEach(message => {
+                message.classList.remove('active');
+            });
+            
+            // Show selected message
+            const selectedMessage = document.getElementById(`message${messageNumber}`);
+            selectedMessage.classList.add('active');
+            
+            // Create floating hearts effect
+            createFloatingHearts();
+            
+            // Add sparkle effect to the message
+            addSparkles(selectedMessage);
+        }
+        
+        // Function to add photo
+        function addPhoto(slot) {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                
+                reader.onload = function(event) {
+                    const img = document.createElement('img');
+                    img.src = event.target.result;
+                    slot.innerHTML = '';
+                    slot.appendChild(img);
+                    
+                    // Add remove button
+                    const removeBtn = document.createElement('div');
+                    removeBtn.className = 'remove-photo';
+                    removeBtn.innerHTML = '<i class="material-icons">close</i>';
+                    removeBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        slot.innerHTML = '<i class="material-icons">add_photo_alternate</i>';
+                        slot.onclick = function() { addPhoto(slot); };
+                    };
+                    slot.appendChild(removeBtn);
+                    
+                    // Remove the onclick event from the slot to prevent re-adding photos
+                    slot.onclick = null;
+                    
+                    // Add animation to the newly added photo
+                    img.style.animation = 'fadeIn 0.5s ease';
+                    
+                    // Create floating hearts effect
+                    createFloatingHearts();
+                }
+                
+                reader.readAsDataURL(file);
+            }
+            
+            input.click();
+        }
+        
+        // Function to save gallery to local storage
+        function saveGallery() {
+            const gallery = document.getElementById('gallery');
+            const photoSlots = gallery.querySelectorAll('.photo-slot');
+            const galleryData = [];
+            
+            photoSlots.forEach((slot, index) => {
+                const img = slot.querySelector('img');
+                if (img) {
+                    galleryData.push({
+                        index: index,
+                        src: img.src
+                    });
+                }
+            });
+            
+            // Save to local storage
+            localStorage.setItem('nabilaGallery', JSON.stringify(galleryData));
+            
+            // Show notification
+            showSaveNotification();
+            
+            // Create floating hearts effect
+            createFloatingHearts();
+        }
+        
+        // Function to load gallery from local storage
+        function loadGallery() {
+            const galleryData = localStorage.getItem('nabilaGallery');
+            
+            if (galleryData) {
+                const photos = JSON.parse(galleryData);
+                const gallery = document.getElementById('gallery');
+                const photoSlots = gallery.querySelectorAll('.photo-slot');
+                
+                photos.forEach(photo => {
+                    if (photoSlots[photo.index]) {
+                        const slot = photoSlots[photo.index];
+                        const img = document.createElement('img');
+                        img.src = photo.src;
+                        slot.innerHTML = '';
+                        slot.appendChild(img);
+                        
+                        // Add remove button
+                        const removeBtn = document.createElement('div');
+                        removeBtn.className = 'remove-photo';
+                        removeBtn.innerHTML = '<i class="material-icons">close</i>';
+                        removeBtn.onclick = function(e) {
+                            e.stopPropagation();
+                            slot.innerHTML = '<i class="material-icons">add_photo_alternate</i>';
+                            slot.onclick = function() { addPhoto(slot); };
+                        };
+                        slot.appendChild(removeBtn);
+                        
+                        // Remove the onclick event from the slot to prevent re-adding photos
+                        slot.onclick = null;
+                    }
+                });
+            }
+        }
+        
+        // Function to clear all photos
+        function clearGallery() {
+            const gallery = document.getElementById('gallery');
+            const photoSlots = gallery.querySelectorAll('.photo-slot');
+            
+            photoSlots.forEach(slot => {
+                slot.innerHTML = '<i class="material-icons">add_photo_alternate</i>';
+                slot.onclick = function() { addPhoto(slot); };
+            });
+            
+            // Clear local storage
+            localStorage.removeItem('nabilaGallery');
+            
+            // Show notification
+            showSaveNotification('Gallery berhasil dihapus!');
+            
+            // Create floating hearts effect
+            createFloatingHearts();
+        }
+        
+        // Function to show save notification
+        function showSaveNotification(message = 'Gallery berhasil disimpan!') {
+            const notification = document.getElementById('saveNotification');
+            notification.querySelector('span').textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Create floating hearts effect
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = '❤️';
+                    
+                    // Random position
+                    const x = Math.random() * window.innerWidth;
+                    heart.style.left = `${x}px`;
+                    heart.style.bottom = '0px';
+                    
+                    container.appendChild(heart);
+                    
+                    // Remove heart after animation completes
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 200);
+            }
+        }
+        
+        // Add sparkle effect to an element
+        function addSparkles(element) {
+            const rect = element.getBoundingClientRect();
+            
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    
+                    // Random position within the element
+                    const x = rect.left + Math.random() * rect.width;
+                    const y = rect.top + Math.random() * rect.height;
+                    
+                    sparkle.style.left = `${x}px`;
+                    sparkle.style.top = `${y}px`;
+                    
+                    document.body.appendChild(sparkle);
+                    
+                    // Remove sparkle after animation completes
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 1500);
+                }, i * 100);
+            }
+        }
+        
+        // Create stars in the background
+        function createStars() {
+            const container = document.getElementById('starsContainer');
+            
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                
+                // Random animation delay
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // Countdown timer
+        function updateCountdown() {
+            const endDate = new Date('2025-12-17T00:00:00');
+            const now = new Date();
+            
+            // If we've reached the end date, show anniversary message
+            if (now >= endDate) {
+                document.getElementById('anniversaryMessage').classList.add('active');
+                createFloatingHearts();
+                return;
+            }
+            
+            // Calculate the difference
+            const diff = endDate - now;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Update the countdown display
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Create floating hearts for anniversary
+        function createAnniversaryHearts() {
+            const container = document.getElementById('heartsContainer');
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 10 + 's';
+                heart.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+                container.appendChild(heart);
+            }
+        }
+        
+        // Add random floating hearts periodically
+        function startRandomHearts() {
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    createFloatingHearts();
+                }
+            }, 5000);
+        }
+        
+        // Add random sparkles periodically
+        function startRandomSparkles() {
+            setInterval(() => {
+                if (Math.random() > 0.6) {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight;
+                    
+                    for (let i = 0; i < 5; i++) {
+                        setTimeout(() => {
+                            const sparkle = document.createElement('div');
+                            sparkle.className = 'sparkle';
+                            
+                            sparkle.style.left = `${x + (Math.random() * 100 - 50)}px`;
+                            sparkle.style.top = `${y + (Math.random() * 100 - 50)}px`;
+                            
+                            document.body.appendChild(sparkle);
+                            
+                            setTimeout(() => {
+                                sparkle.remove();
+                            }, 1500);
+                        }, i * 100);
+                    }
+                }
+            }, 3000);
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Initial call
+        updateCountdown();
+        
+        // Start random effects
+        startRandomHearts();
+        startRandomSparkles();
+        createStars();
+        
+        // Load gallery from local storage on page load
+        loadGallery();
+        
+        // Add hover effect to time values
+        document.querySelectorAll('.time-value').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+        
+        // Add click effect to heart icon
+        document.querySelector('.heart-icon').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'heartbeat 1.5s infinite';
+            }, 10);
+            
+            // Create extra hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createFloatingHearts();
+                }, i * 100);
+            }
+        });
+        
+        // Add ripple effect to message buttons
+        document.querySelectorAll('.message-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
