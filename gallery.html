@@ -22,18 +22,19 @@
             position: relative;
         }
         
-        /* Enhanced animated background elements */
+        /* Optimized animated background elements */
         .bg-bubble {
             position: fixed;
             border-radius: 50%;
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
+            opacity: 0.1;
+            animation: float 25s infinite ease-in-out;
             z-index: -1;
+            will-change: transform;
         }
         
         .bubble-1 {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             background-color: #ff758c;
             top: 10%;
             left: 5%;
@@ -41,8 +42,8 @@
         }
         
         .bubble-2 {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             background-color: #ff7eb3;
             top: 60%;
             right: 10%;
@@ -51,8 +52,8 @@
         }
         
         .bubble-3 {
-            width: 180px;
-            height: 180px;
+            width: 130px;
+            height: 130px;
             background-color: #8e7cc3;
             bottom: 10%;
             left: 15%;
@@ -60,18 +61,19 @@
             animation-delay: 5s;
         }
         
-        /* Additional animated elements */
+        /* Optimized animated particles */
         .particle {
             position: fixed;
             border-radius: 50%;
-            opacity: 0.4;
+            opacity: 0.3;
             z-index: -1;
             pointer-events: none;
+            will-change: transform, opacity;
         }
         
         .particle-1 {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background-color: #fff;
             top: 20%;
             left: 10%;
@@ -79,8 +81,8 @@
         }
         
         .particle-2 {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background-color: #fff;
             top: 40%;
             right: 20%;
@@ -88,52 +90,35 @@
         }
         
         .particle-3 {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background-color: #fff;
             bottom: 30%;
             left: 25%;
             animation: twinkle 5s infinite alternate 2s;
         }
         
-        .particle-4 {
-            width: 6px;
-            height: 6px;
-            background-color: #fff;
-            top: 70%;
-            right: 15%;
-            animation: twinkle 4.5s infinite alternate 0.5s;
-        }
-        
-        .particle-5 {
-            width: 9px;
-            height: 9px;
-            background-color: #fff;
-            bottom: 20%;
-            right: 30%;
-            animation: twinkle 3.5s infinite alternate 1.5s;
-        }
-        
-        /* Floating hearts */
+        /* Optimized floating hearts */
         .heart-float {
             position: absolute;
             bottom: -10%;
-            font-size: 20px;
-            color: rgba(255, 105, 180, 0.5);
+            font-size: 16px;
+            color: rgba(255, 105, 180, 0.4);
             animation: floatUp 15s linear infinite;
+            will-change: transform;
         }
         
-        /* Animated gradient overlay */
+        /* Optimized gradient overlay */
         .gradient-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 117, 140, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(142, 124, 195, 0.2) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 30%, rgba(255, 117, 140, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(142, 124, 195, 0.15) 0%, transparent 50%);
             z-index: -1;
-            animation: pulse 10s infinite alternate;
+            animation: pulse 12s infinite alternate;
         }
         
         @keyframes float {
@@ -141,10 +126,10 @@
                 transform: translateY(0) rotate(0deg);
             }
             33% {
-                transform: translateY(-20px) rotate(5deg);
+                transform: translateY(-15px) rotate(3deg);
             }
             66% {
-                transform: translateY(20px) rotate(-5deg);
+                transform: translateY(15px) rotate(-3deg);
             }
         }
         
@@ -154,8 +139,8 @@
                 transform: scale(0.8);
             }
             50% {
-                opacity: 0.8;
-                transform: scale(1.2);
+                opacity: 0.6;
+                transform: scale(1.1);
             }
             100% {
                 opacity: 0.2;
@@ -169,10 +154,10 @@
                 opacity: 0;
             }
             10% {
-                opacity: 0.7;
+                opacity: 0.5;
             }
             90% {
-                opacity: 0.7;
+                opacity: 0.5;
             }
             100% {
                 transform: translateY(-100vh) rotate(360deg);
@@ -182,18 +167,18 @@
         
         @keyframes pulse {
             0% {
-                opacity: 0.3;
+                opacity: 0.2;
             }
             50% {
-                opacity: 0.6;
+                opacity: 0.4;
             }
             100% {
-                opacity: 0.3;
+                opacity: 0.2;
             }
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             display: flex;
@@ -204,9 +189,10 @@
         
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             animation: fadeInDown 1s ease;
             position: relative;
+            width: 100%;
         }
         
         .back-button {
@@ -214,7 +200,7 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -223,13 +209,15 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            z-index: 100;
+            pointer-events: auto;
         }
         
         .back-button:hover {
             transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+            background-color: rgba(255, 255, 255, 0.6);
         }
         
         .back-button i {
@@ -239,7 +227,7 @@
         
         h1 {
             font-family: 'Raleway', sans-serif;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 10px;
             text-shadow: 0 0 10px #fff, 0 0 20px #ff4081, 0 0 30px #ff4081, 0 0 40px #ff4081;
@@ -248,6 +236,7 @@
             display: inline-block;
             letter-spacing: 1px;
             animation: glow 2s infinite alternate;
+            will-change: text-shadow;
         }
         
         @keyframes glow {
@@ -280,6 +269,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            will-change: transform;
         }
         
         .photo-slot:hover {
@@ -292,6 +282,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            will-change: transform;
         }
         
         .photo-slot:hover img {
@@ -334,6 +325,7 @@
             border-radius: 50%;
             border-top-color: #ff4081;
             animation: spin 1s ease-in-out infinite;
+            will-change: transform;
         }
         
         @keyframes spin {
@@ -343,7 +335,7 @@
         /* Messages Section */
         .messages-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
             width: 100%;
@@ -359,6 +351,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            will-change: transform;
         }
         
         .message-card::before {
@@ -384,7 +377,7 @@
         
         .message-title {
             font-family: 'Roboto', sans-serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: 700;
             margin-bottom: 5px;
         }
@@ -393,7 +386,7 @@
             display: none;
             margin-top: 10px;
             font-family: 'Roboto', sans-serif;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             line-height: 1.5;
         }
         
@@ -460,7 +453,7 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             font-family: 'Roboto', sans-serif;
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             font-weight: 500;
             line-height: 1.6;
             color: #4a148c;
@@ -500,7 +493,7 @@
         
         .countdown-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
             font-weight: 600;
             margin-bottom: 15px;
             color: #4a148c;
@@ -524,6 +517,7 @@
             border-radius: 10px;
             min-width: 70px;
             transition: transform 0.3s ease;
+            will-change: transform;
         }
         
         .time-unit:hover {
@@ -532,14 +526,14 @@
         
         .time-value {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
             color: #311b92;
         }
         
         .time-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             color: #512da8;
             text-transform: uppercase;
             font-weight: 600;
@@ -548,7 +542,7 @@
         .anniversary-message {
             display: none;
             font-family: 'Raleway', sans-serif;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
             text-align: center;
             margin: 30px 0;
@@ -556,15 +550,6 @@
             text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
             animation: glow 2s infinite alternate;
             letter-spacing: 2px;
-        }
-        
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073;
-            }
-            to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
-            }
         }
         
         footer {
@@ -579,7 +564,7 @@
         
         .footer-message {
             font-family: 'Roboto', sans-serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: 500;
             color: #1a237e;
             margin-bottom: 10px;
@@ -614,6 +599,7 @@
             max-height: 80%;
             object-fit: contain;
             animation: zoomIn 0.3s ease;
+            will-change: transform;
         }
         
         @keyframes zoomIn {
@@ -638,66 +624,7 @@
             text-decoration: none;
         }
         
-        /* Responsive design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .messages-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .time-unit {
-                min-width: 60px;
-            }
-            
-            .time-value {
-                font-size: 1.5rem;
-            }
-            
-            .special-message {
-                font-size: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-            
-            .messages-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .countdown-timer {
-                gap: 10px;
-            }
-            
-            .time-unit {
-                min-width: 50px;
-                padding: 5px;
-            }
-            
-            .time-value {
-                font-size: 1.2rem;
-            }
-            
-            .time-label {
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Animations */
+        /* Optimized Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -719,370 +646,62 @@
                 transform: translateY(0);
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Animated background elements -->
-    <div class="bg-bubble bubble-1"></div>
-    <div class="bg-bubble bubble-2"></div>
-    <div class="bg-bubble bubble-3"></div>
-    
-    <!-- Additional animated particles -->
-    <div class="particle particle-1"></div>
-    <div class="particle particle-2"></div>
-    <div class="particle particle-3"></div>
-    <div class="particle particle-4"></div>
-    <div class="particle particle-5"></div>
-    
-    <!-- Gradient overlay -->
-    <div class="gradient-overlay"></div>
-    
-    <!-- Floating hearts container -->
-    <div class="floating-hearts" id="hearts-container"></div>
-    
-    <div class="container">
-        <header>
-            <div class="back-button" id="back-button">
-                <i class="material-icons">arrow_back</i>
-            </div>
-            <h1>Untuk Nabila Sayang❤️</h1>
-        </header>
         
-        <section class="gallery" id="gallery">
-            <!-- Photo slots will be created dynamically -->
-        </section>
-        
-        <section class="messages-container">
-            <div class="message-card" data-message="1">
-                <div class="message-title">Pesan 1 🤍</div>
-                <div class="message-content">Semangat sayangggkuuuu 🤍</div>
-            </div>
-            <div class="message-card" data-message="2">
-                <div class="message-title">Pesan 2 🤍</div>
-                <div class="message-content">kamu itu berhak bahagia, jangan biarin orang seenaknya ya ke kamu!🤍</div>
-            </div>
-            <div class="message-card" data-message="3">
-                <div class="message-title">Pesan 3 🤍</div>
-                <div class="message-content">ceritain dan kasih semua seneng kamu, bahagia kamu, sedih kamu, dan nangis kamu ke aku yaaa! jangan disimpen sendiri, aku cowo kamuuuu🤍</div>
-            </div>
-            <div class="message-card" data-message="4">
-                <div class="message-title">Pesan 4 🤍</div>
-                <div class="message-content">yuk bareng-bareng berjuang buat hubungan ini!, jangan sampe kalah sama ego, apalagi sampe orang lain atau temen kamu masuk buat ngatur hubungan kita!🤍</div>
-            </div>
-            <div class="message-card" data-message="5">
-                <div class="message-title">Pesan 5 🤍</div>
-                <div class="message-content">Love youuuu sayangkuuuu🤍</div>
-            </div>
-            <div class="message-card" data-message="6">
-                <div class="message-title">Pesan 6 🤍</div>
-                <div class="message-content">Jangan berubah lagi ya! tetep kaya hubungan sekarang dan diri kamu yang sekarang! 🤍</div>
-            </div>
-        </section>
-        
-        <div class="special-message">
-            Karena kamu, aku bisa semangat dan sabar ngejalanin semuanya, karena kamu, aku bisa ngehargain diri sendiri, dan karena kamu yang ngasih aku banyak pengalaman.
-        </div>
-        
-        <section class="countdown" id="countdown">
-            <div class="countdown-title">Menuju Hari Spesial Kita 💕</div>
-            <div class="countdown-timer">
-                <div class="time-unit">
-                    <div class="time-value" id="days">00</div>
-                    <div class="time-label">Hari</div>
-                </div>
-                <div class="time-unit">
-                    <div class="time-value" id="hours">00</div>
-                    <div class="time-label">Jam</div>
-                </div>
-                <div class="time-unit">
-                    <div class="time-value" id="minutes">00</div>
-                    <div class="time-label">Menit</div>
-                </div>
-                <div class="time-unit">
-                    <div class="time-value" id="seconds">00</div>
-                    <div class="time-label">Detik</div>
-                </div>
-            </div>
-        </section>
-        
-        <div class="anniversary-message" id="anniversary-message">
-            Happy Anniversary! 🎉💕
-        </div>
-        
-        <footer>
-            <div class="footer-message">dari Rapli untuk Nabila</div>
-            <span class="heart">❤️</span>
-        </footer>
-    </div>
-    
-    <!-- Modal for full-size image -->
-    <div id="imageModal" class="modal">
-        <span class="close">×</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-    
-    <script>
-        // Photo URLs with multiple formats to try
-        const photoUrls = [
-            {
-                id: '1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
-                    'https://lh3.googleusercontent.com/d/1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
-                    'https://drive.google.com/thumbnail?id=1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe&sz=w1000'
-                ]
-            },
-            {
-                id: '13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
-                    'https://lh3.googleusercontent.com/d/13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
-                    'https://drive.google.com/thumbnail?id=13u22vw5-Fih5tpa0not0tMtnXjAh-u2-&sz=w1000'
-                ]
-            },
-            {
-                id: '1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
-                    'https://lh3.googleusercontent.com/d/1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
-                    'https://drive.google.com/thumbnail?id=1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4&sz=w1000'
-                ]
-            },
-            {
-                id: '1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
-                    'https://lh3.googleusercontent.com/d/1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
-                    'https://drive.google.com/thumbnail?id=1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp&sz=w1000'
-                ]
-            },
-            {
-                id: '12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
-                    'https://lh3.googleusercontent.com/d/12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
-                    'https://drive.google.com/thumbnail?id=12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb&sz=w1000'
-                ]
-            },
-            {
-                id: '1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
-                    'https://lh3.googleusercontent.com/d/1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
-                    'https://drive.google.com/thumbnail?id=1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN&sz=w1000'
-                ]
-            },
-            {
-                id: '1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
-                    'https://lh3.googleusercontent.com/d/1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
-                    'https://drive.google.com/thumbnail?id=1tuhE4idPRsERI-xFltmax3xDG44vYhdj&sz=w1000'
-                ]
-            },
-            {
-                id: '1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
-                    'https://lh3.googleusercontent.com/d/1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
-                    'https://drive.google.com/thumbnail?id=1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns&sz=w1000'
-                ]
-            },
-            {
-                id: '1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
-                formats: [
-                    'https://drive.google.com/uc?export=view&id=1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
-                    'https://lh3.googleusercontent.com/d/1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
-                    'https://drive.google.com/thumbnail?id=1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt&sz=w1000'
-                ]
-            }
-        ];
-        
-        // Create photo slots
-        function createPhotoSlots() {
-            const gallery = document.getElementById('gallery');
-            
-            photoUrls.forEach((photo, index) => {
-                const photoSlot = document.createElement('div');
-                photoSlot.className = 'photo-slot';
-                photoSlot.id = `photo-${index+1}`;
-                
-                // Create loading overlay
-                const loadingOverlay = document.createElement('div');
-                loadingOverlay.className = 'loading-overlay';
-                
-                const spinner = document.createElement('div');
-                spinner.className = 'spinner';
-                loadingOverlay.appendChild(spinner);
-                
-                // Create image element
-                const img = document.createElement('img');
-                img.alt = `Photo ${index+1}`;
-                img.style.display = 'none';
-                
-                // Create placeholder
-                const placeholder = document.createElement('div');
-                placeholder.className = 'photo-placeholder';
-                placeholder.innerHTML = '<i class="material-icons">add_photo_alternate</i><span>Loading...</span>';
-                
-                // Add elements to slot
-                photoSlot.appendChild(loadingOverlay);
-                photoSlot.appendChild(img);
-                photoSlot.appendChild(placeholder);
-                
-                // Try loading image with different formats
-                let formatIndex = 0;
-                
-                function tryLoadImage() {
-                    if (formatIndex < photo.formats.length) {
-                        img.src = photo.formats[formatIndex];
-                        formatIndex++;
-                    } else {
-                        // All formats failed, show error
-                        loadingOverlay.style.display = 'none';
-                        img.style.display = 'none';
-                        placeholder.innerHTML = '<i class="material-icons">broken_image</i><span>Foto gagal dimuat</span>';
-                    }
-                }
-                
-                img.onload = function() {
-                    loadingOverlay.style.display = 'none';
-                    placeholder.style.display = 'none';
-                    img.style.display = 'block';
-                };
-                
-                img.onerror = function() {
-                    tryLoadImage();
-                };
-                
-                // Start with first format
-                tryLoadImage();
-                
-                // Add click event for modal
-                photoSlot.addEventListener('click', function() {
-                    const modal = document.getElementById('imageModal');
-                    const modalImg = document.getElementById('modalImage');
-                    
-                    modal.style.display = 'block';
-                    modalImg.src = img.src;
-                });
-                
-                gallery.appendChild(photoSlot);
-            });
-        }
-        
-        // Handle message card clicks
-        function setupMessageCards() {
-            const messageCards = document.querySelectorAll('.message-card');
-            
-            messageCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const content = this.querySelector('.message-content');
-                    
-                    // Toggle current message
-                    content.classList.toggle('show');
-                    
-                    // Close other messages
-                    messageCards.forEach(otherCard => {
-                        if (otherCard !== this) {
-                            const otherContent = otherCard.querySelector('.message-content');
-                            otherContent.classList.remove('show');
-                        }
-                    });
-                });
-            });
-        }
-        
-        // Countdown timer
-        function setupCountdown() {
-            // Set the target date (17 December 2025, 00:00:00)
-            const targetDate = new Date('December 17, 2025 00:00:00').getTime();
-            
-            // Update the countdown every 1 second
-            const countdownInterval = setInterval(function() {
-                // Get today's date and time
-                const now = new Date().getTime();
-                
-                // Find the distance between now and the countdown date
-                const distance = targetDate - now;
-                
-                // Time calculations for days, hours, minutes and seconds
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Display the result
-                document.getElementById('days').innerText = days.toString().padStart(2, '0');
-                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-                
-                // If the countdown is finished, display a message
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById('countdown').style.display = 'none';
-                    document.getElementById('anniversary-message').style.display = 'block';
-                }
-            }, 1000);
-        }
-        
-        // Modal close functionality
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeBtn = document.getElementsByClassName('close')[0];
-        
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
+        /* Optimized Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 95%;
             }
         }
         
-        // Back button functionality
-        document.getElementById('back-button').addEventListener('click', function() {
-            window.location.href = 'index.html';
-        });
-        
-        // Create floating hearts
-        function createFloatingHearts() {
-            const heartsContainer = document.getElementById('hearts-container');
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
             
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.className = 'heart-float';
-                heart.innerHTML = '❤️';
-                
-                // Random position
-                heart.style.left = Math.random() * 100 + '%';
-                
-                // Random size
-                const size = Math.random() * 20 + 10;
-                heart.style.fontSize = `${size}px`;
-                
-                // Random animation duration
-                const duration = Math.random() * 10 + 10;
-                heart.style.animationDuration = `${duration}s`;
-                
-                heartsContainer.appendChild(heart);
-                
-                // Remove heart after animation completes
-                setTimeout(() => {
-                    heart.remove();
-                }, duration * 1000);
-            }, 2000);
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .messages-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 12px;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+            }
         }
         
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            createPhotoSlots();
-            setupMessageCards();
-            setupCountdown();
-            createFloatingHearts();
-        });
-    </script>
-</body>
-</html>
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .messages-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .countdown-timer {
+                gap: 8px;
+            }
+            
+            .time-unit {
+                min-width: 50px;
+                padding: 5px;
+            }
+        }
+        
+        /* Performance optimization for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+         
