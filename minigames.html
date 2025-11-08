@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Games - Nasara Website</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Enhanced animated background elements */
+        .bg-bubble {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+            z-index: -1;
+        }
+        
+        .bubble-1 {
+            width: 200px;
+            height: 200px;
+            background-color: #ff758c;
+            top: 10%;
+            left: 5%;
+            animation-duration: 25s;
+        }
+        
+        .bubble-2 {
+            width: 150px;
+            height: 150px;
+            background-color: #ff7eb3;
+            top: 60%;
+            right: 10%;
+            animation-duration: 30s;
+            animation-delay: 2s;
+        }
+        
+        .bubble-3 {
+            width: 180px;
+            height: 180px;
+            background-color: #8e7cc3;
+            bottom: 10%;
+            left: 15%;
+            animation-duration: 35s;
+            animation-delay: 5s;
+        }
+        
+        /* Additional animated elements */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle-1 {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            top: 20%;
+            left: 10%;
+            animation: twinkle 4s infinite alternate;
+        }
+        
+        .particle-2 {
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            top: 40%;
+            right: 20%;
+            animation: twinkle 3s infinite alternate 1s;
+        }
+        
+        .particle-3 {
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            bottom: 30%;
+            left: 25%;
+            animation: twinkle 5s infinite alternate 2s;
+        }
+        
+        .particle-4 {
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            top: 70%;
+            right: 15%;
+            animation: twinkle 4.5s infinite alternate 0.5s;
+        }
+        
+        .particle-5 {
+            width: 9px;
+            height: 9px;
+            background-color: #fff;
+            bottom: 20%;
+            right: 30%;
+            animation: twinkle 3.5s infinite alternate 1.5s;
+        }
+        
+        /* Game-themed floating elements */
+        .game-icon-float {
+            position: fixed;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.3);
+            animation: floatUp 20s linear infinite;
+            z-index: -1;
+        }
+        
+        .icon-1 {
+            top: 80%;
+            left: 10%;
+            animation-duration: 18s;
+            animation-delay: 0s;
+        }
+        
+        .icon-2 {
+            top: 85%;
+            left: 30%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+        }
+        
+        .icon-3 {
+            top: 75%;
+            left: 50%;
+            animation-duration: 20s;
+            animation-delay: 6s;
+        }
+        
+        .icon-4 {
+            top: 90%;
+            left: 70%;
+            animation-duration: 25s;
+            animation-delay: 9s;
+        }
+        
+        .icon-5 {
+            top: 85%;
+            left: 90%;
+            animation-duration: 19s;
+            animation-delay: 12s;
+        }
+        
+        /* Animated gradient overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 117, 140, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(142, 124, 195, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: pulse 10s infinite alternate;
+        }
+        
+        /* Floating hearts */
+        .heart-float {
+            position: absolute;
+            bottom: -10%;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            animation: floatUp 15s linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(-5deg);
+            }
+        }
+        
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+            position: relative;
+            width: 100%;
+        }
+        
+        .back-button {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .back-button:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .back-button i {
+            font-size: 24px;
+            color: #fff;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .game-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+        
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .game-card:hover::before {
+            opacity: 1;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .game-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .game-description {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+        }
+        
+        /* Game Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: rgba(102, 126, 234, 0.9);
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .game-title-modal {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .game-area {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 300px;
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .game-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .game-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .score-display {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .score-message {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        /* Love Songs Quiz Styles */
+        .quiz-question {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .quiz-option.correct {
+            background-color: rgba(76, 175, 80, 0.5);
+        }
+        
+        .quiz-option.incorrect {
+            background-color: rgba(244, 67, 54, 0.5);
+        }
+        
+        /* Love Calculator Styles */
+        .calculator-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .input-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+        }
+        
+        .input-field {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+        }
+        
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .result-display {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        /* Memory Game Styles */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .memory-card {
+            aspect-ratio: 1/1;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .memory-card.flipped {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .memory-card.matched {
+            background-color: rgba(76, 175, 80, 0.5);
+        }
+        
+        /* Love Puzzle Styles */
+        .puzzle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        
+        .puzzle-piece {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .puzzle-piece:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .puzzle-piece.empty {
+            background-color: transparent;
+            cursor: default;
+        }
+        
+        /* Love Story Styles */
+        .story-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .story-text {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .story-image {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+        
+        /* Love Compatibility Styles */
+        .compatibility-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .zodiac-select {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #fff;
+        }
+        
+        .zodiac-select option {
+            background-color: #667eea;
+            color: #fff;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .games-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .games-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .memory-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .game-card {
+                padding: 20px;
+                min-height: 200px;
+            }
+            
+            .game-icon {
+                font-size: 2.5rem;
+            }
+            
+            .game-title {
+                font-size: 1.2rem;
+            }
+            
+            .memory-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .puzzle-grid {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Confetti animation for high scores */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            position: absolute;
+            animation: confetti-fall 3s linear forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="bg-bubble bubble-1"></div>
+    <div class="bg-bubble bubble-2"></div>
+    <div class="bg-bubble bubble-3"></div>
+    
+    <!-- Additional animated particles -->
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+    
+    <!-- Game-themed floating elements -->
+    <div class="game-icon-float icon-1"><i class="material-icons">favorite</i></div>
+    <div class="game-icon-float icon-2"><i class="material-icons">music_note</i></div>
+    <div class="game-icon-float icon-3"><i class="material-icons">psychology</i></div>
+    <div class="game-icon-float icon-4"><i class="material-icons">extension</i></div>
+    <div class="game-icon-float icon-5"><i class="material-icons">stars</i></div>
+    
+    <!-- Gradient overlay -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Floating hearts container -->
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <div class="container">
+        <header>
+            <div class="back-button" id="back-button">
+                <i class="material-icons">arrow_back</i>
+            </div>
+            <h1>Mini Games</h1>
+        </header>
+        
+        <section class="games-container">
+            <div class="game-card" data-game="love-songs">
+                <i class="material-icons game-icon">music_note</i>
+                <h2 class="game-title">Love Songs Quiz</h2>
+                <p class="game-description">Tebak lagu-lagu romantis Indonesia dan Barat yang viral dan trending!</p>
+            </div>
+            
+            <div class="game-card" data-game="love-calculator">
+                <i class="material-icons game-icon">favorite</i>
+                <h2 class="game-title">Love Calculator</h2>
+                <p class="game-description">Hitung persentase cinta antara dua orang!</p>
+            </div>
+            
+            <div class="game-card" data-game="memory-game">
+                <i class="material-icons game-icon">psychology</i>
+                <h2 class="game-title">Memory Game</h2>
+                <p class="game-description">Uji ingatanmu dengan game kartu memori romantis!</p>
+            </div>
+            
+            <div class="game-card" data-game="love-puzzle">
+                <i class="material-icons game-icon">extension</i>
+                <h2 class="game-title">Love Puzzle</h2>
+                <p class="game-description">Selesaikan puzzle angka romantis!</p>
+            </div>
+            
+            <div class="game-card" data-game="love-story">
+                <i class="material-icons game-icon">auto_stories</i>
+                <h2 class="game-title">Love Story</h2>
+                <p class="game-description">Baca cerita cinta yang menginspirasi!</p>
+            </div>
+            
+            <div class="game-card" data-game="love-compatibility">
+                <i class="material-icons game-icon">stars</i>
+                <h2 class="game-title">Love Compatibility</h2>
+                <p class="game-description">Cek kecocokan zodiakmu dengan pasangan!</p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Game Modals -->
+    <!-- Love Songs Quiz Modal -->
+    <div id="love-songs-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="love-songs-modal">×</span>
+            <div class="game-header">
+                <h2 class="game-title-modal">Love Songs Quiz</h2>
+            </div>
+            <div class="game-area">
+                <div class="quiz-question" id="quiz-question">Tunggu pertanyaan...</div>
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Options will be generated dynamically -->
+                </div>
+                <div class="score-display">Skor: <span id="quiz-score">0</span></div>
+                <div class="score-message" id="quiz-message"></div>
+            </div>
+            <div class="game-controls">
+                <button class="game-button" id="start-quiz">
+                    <i class="material-icons">play_arrow</i>
+                    Mulai Quiz
+                </button>
+                <button class="game-button" id="next-question" style="display: none;">
+                    <i class="material-icons">arrow_forward</i>
+                    Pertanyaan Berikutnya
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Love Calculator Modal -->
+    <div id="love-calculator-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="love-calculator-modal">×</span>
+            <div class="game-header">
+                <h2 class="game-title-modal">Love Calculator</h2>
+            </div>
+            <div class="game-area">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label class="input-label" for="name1">Nama Pertama</label>
+                        <input type="text" id="name1" class="input-field" placeholder="Masukkan nama pertama">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="name2">Nama Kedua</label>
+                        <input type="text" id="name2" class="input-field" placeholder="Masukkan nama kedua">
+                    </div>
+                </div>
+                <div class="result-display" id="love-result">0%</div>
+                <div class="score-message" id="love-message"></div>
+            </div>
+            <div class="game-controls">
+                <button class="game-button" id="calculate-love">
+                    <i class="material-icons">favorite</i>
+                    Hitung Cinta
+                </button>
+                <button class="game-button" id="reset-calculator">
+                    <i class="material-icons">refresh</i>
+                    Reset
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Memory Game Modal -->
+    <div id="memory-game-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="memory-game-modal">×</span>
+            <div class="game-header">
+                <h2 class="game-title-modal">Memory Game</h2>
+            </div>
+            <div class="game-area">
+                <div class="memory-grid" id="memory-grid">
+                    <!-- Memory cards will be generated dynamically -->
+                </div>
+                <div class="score-display">Skor: <span id="memory-score">0</span></div>
+                <div class="score-message" id="memory-message"></div>
+            </div>
+            <div class="game-controls">
+                <button class="game-button" id="start-memory">
+                    <i class="material-icons">play_arrow</i>
+                    Mulai Game
+                </button>
+                <button class="game-button" id="reset-memory">
+                    <i class="material-icons">refresh</i>
+                    Reset Game
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Love Puzzle Modal -->
+    <div id="love-puzzle-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="love-puzzle-modal">×</span>
+            <div class="game-header">
+                <h2 class="game-title-modal">Love Puzzle</h2>
+            </div>
+            <div class="game-area">
+                <div class="puzzle-container">
+                    <div class="puzzle-grid" id="puzzle-grid">
+                        <!-- Puzzle pieces will be generated dynamically -->
+                    </div>
+                    <div class="score-display">Langkah: <span id="puzzle-moves">0</span></div>
+                    <div class="score-message" id="puzzle-message"></div>
+                </div>
+            </div>
+            <div class="game-controls">
+                <button class="game-button" id="start-puzzle">
+                    <i class="material-icons">play_arrow</i>
+                    Mulai Puzzle
+                </button>
+                <button class="game-button" id="reset-puzzle">
+                    <i class="material-icons">refresh</i>
+                    Reset Puzzle
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Love Story Modal -->
+    <div id="love-story-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="love-story-modal">×</span>
+            <div class="game-header">
+                <h2 class="game-title-modal">Love Story</h2>
+            </div>
+            <div class="game-area">
+                <div class="story-container">
+                    <img src="https://picsum.photos/seed/lovestory/400/300.jpg" alt="Love Story" class="story-image">
+                    <div class="story-text" id="story-text">
+                        Klik tombol di bawah untuk membaca cerita cinta yang menginspirasi!
+                    </div>
+                </div>
+            </div>
+            <div class="game-controls">
+                <button class="game-button" id="next-story">
+                    <i class="material-icons">auto_stories</i>
+                    Cerita Berikutnya
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Love Compatibility Modal -->
+    <div id="love-compatibility-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="love-compatibility-modal">×</span>
+            <div class="game-header">
+                <h2 class="game-title-modal">Love Compatibility</h2>
+            </div>
+            <div class="game-area">
+                <div class="compatibility-inputs">
+                    <div class="input-group">
+                        <label class="input-label" for="zodiac1">Zodiak Pertama</label>
+                        <select id="zodiac1" class="zodiac-select">
+                            <option value="">Pilih zodiak</option>
+                            <option value="aries">Aries (21 Maret - 19 April)</option>
+                            <option value="taurus">Taurus (20 April - 20 Mei)</option>
+                            <option value="gemini">Gemini (21 Mei - 20 Juni)</option>
+                            <option value="cancer">Cancer (21 Juni - 22 Juli)</option>
+                            <option value="leo">Leo (23 Juli - 22 Agustus)</option>
+                            <option value="virgo">Virgo (23 Agustus - 22 September)</option>
+                            <option value="libra">Libra (23 September - 22 Oktober)</option>
+                            <option value="scorpio">Scorpio (23 Oktober - 21 November)</option>
+                            <option value="sagittarius">Sagittarius (22 November - 21 Desember)</option>
+                            <option value="capricorn">Capricorn (22 Desember - 19 Januari)</option>
+                            <option value="aquarius">Aquarius (20 Januari - 18 Februari)</option>
+                            <option value="pisces">Pisces (19 Februari - 20 Maret)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="zodiac2">Zodiak Kedua</label>
+                        <select id="zodiac2" class="zodiac-select">
+                            <option value="">Pilih zodiak</option>
+                            <option value="aries">Aries (21 Maret - 19 April)</option>
+                            <option value="taurus">Taurus (20 April - 20 Mei)</option>
+                            <option value="gemini">Gemini (21 Mei - 20 Juni)</option>
+                            <option value="cancer">Cancer (21 Juni - 22 Juli)</option>
+                            <option value="leo">Leo (23 Juli - 22 Agustus)</option>
+                            <option value="virgo">Virgo (23 Agustus - 22 September)</option>
+                            <option value="libra">Libra (23 September - 22 Oktober)</option>
+                            <option value="scorpio">Scorpio (23 Oktober - 21 November)</option>
+                            <option value="sagittarius">Sagittarius (22 November - 21 Desember)</option>
+                            <option value="capricorn">Capricorn (22 Desember - 19 Januari)</option>
+                            <option value="aquarius">Aquarius (20 Januari - 18 Februari)</option>
+                            <option value="pisces">Pisces (19 Februari - 20 Maret)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="result-display" id="compatibility-result">0%</div>
+                <div class="score-message" id="compatibility-message"></div>
+            </div>
+            <div class="game-controls">
+                <button class="game-button" id="check-compatibility">
+                    <i class="material-icons">stars</i>
+                    Cek Kecocokan
+                </button>
+                <button class="game-button" id="reset-compatibility">
+                    <i class="material-icons">refresh</i>
+                    Reset
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Game data
+        const loveSongsQuiz = [
+            {
+                question: "Lagu 'Pernah' yang dinyanyikan oleh Fiersa Besari dirilis pada tahun berapa?",
+                options: ["2018", "2019", "2020", "2021"],
+                correct: 0
+            },
+            {
+                question: "Siapa penyanyi lagu 'Perfect'?",
+                options: ["Ed Sheeran", "John Legend", "Sam Smith", "Bruno Mars"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'Cinta Luar Biasa' dinyanyikan oleh?",
+                options: ["Andmesh Kamaleng", "Judika", "Armand Maulana", "Raisa"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'All of Me' dinyanyikan oleh?",
+                options: ["John Legend", "Ed Sheeran", "Sam Smith", "Bruno Mars"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'Bintang di Surga' dinyanyikan oleh?",
+                options: ["Peterpan", "Noah", "Ungu", "Geisha"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'Thinking Out Loud' dinyanyikan oleh?",
+                options: ["Ed Sheeran", "John Legend", "Sam Smith", "Bruno Mars"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'Kamu adalah' dinyanyikan oleh?",
+                options: ["Kotak", "Tulus", "Raisa", "Isyana Sarasvati"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'A Thousand Years' dinyanyikan oleh?",
+                options: ["Christina Perri", "Taylor Swift", "Adele", "Sia"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'Kemarin' dinyanyikan oleh?",
+                options: ["Seventeen", "Noah", "Ungu", "Geisha"],
+                correct: 0
+            },
+            {
+                question: "Lagu 'Love Me Like You Do' dinyanyikan oleh?",
+                options: ["Ellie Goulding", "Taylor Swift", "Adele", "Sia"],
+                correct: 0
+            }
+        ];
+        
+        const loveStories = [
+            "Di sebuah kota kecil, ada sepasang kekasih yang telah bersama selama 10 tahun. Mereka bertemu saat masih SMA dan menjalin hubungan hingga kuliah. Setelah lulus, mereka memutuskan untuk menikah. Pernikahan mereka sederhana namun penuh kebahagiaan. Mereka berjanji untuk selalu mendukung satu sama lain dalam suka dan duka. Hingga hari ini, mereka masih bersama dan bahagia, membuktikan bahwa cinta sejati memang ada.",
+            "Seorang pria muda jatuh cinta pada seorang wanita yang ia temui di perpustakaan. Mereka sering bertemu dan berbicara tentang buku-buku favorit mereka. Suatu hari, pria itu mengungkapkan perasaannya dan wanita itu menerimanya. Mereka mulai berkencan dan menemukan bahwa mereka memiliki banyak kesamaan. Setelah setahun berpacaran, pria itu melamar wanita itu di perpustakaan tempat mereka pertama kali bertemu. Wanita itu menangis bahagia dan menerima lamarannya. Mereka menikah setahun kemudian dan masih bahagia hingga sekarang.",
+            "Ada sepasang kekasih yang tinggal di negara yang berbeda. Mereka bertemu melalui aplikasi kencan online dan mulai berkomunikasi setiap hari. Meskipun jarak memisahkan mereka, mereka berjanji untuk bertemu suatu hari nanti. Setelah setahun berkomunikasi, pria itu terbang ke negara wanita itu untuk bertemu. Mereka langsung merasa nyaman satu sama lain dan memutuskan untuk menjalin hubungan jarak jauh. Setelah dua tahun, wanita itu pindah ke negara pria itu dan mereka menikah. Mereka membuktikan bahwa jarak bukanlah halangan untuk cinta sejati.",
+            "Seorang wanita single menemukan kucing yang terluka di jalanan. Dia membawanya ke dokter hewan dan merawatnya hingga sembuh. Selama proses perawatan, ia bertemu dengan dokter hewan yang baik hati. Mereka sering berbicara tentang kucing dan hewan peliharaan lainnya. Lama-kelamaan, mereka mulai jatuh cinta. Setelah beberapa bulan, dokter hewan itu mengungkapkan perasaannya dan wanita itu menerimanya. Mereka menikah setahun kemudian dan kucing itu menjadi saksi bisu cinta mereka.",
+            "Seorang pria dan wanita bertemu di konser musik favorit mereka. Mereka duduk bersebelahan dan mulai berbicara tentang band favorit mereka. Mereka menemukan bahwa mereka memiliki selera musik yang sama. Setelah konser, mereka pergi minum kopi dan berbicara berjam-jam. Mereka bertukar nomor telepon dan mulai berkencan. Setelah enam bulan, pria itu membawa wanita itu ke konser band favorit mereka lagi dan melamarnya di tengah lagu favorit mereka. Wanita itu menangis bahagia dan menerima lamarannya. Mereka menikah setahun kemudian dan masih pergi ke konser bersama hingga sekarang."
+        ];
+        
+        const zodiacCompatibility = {
+            "aries-aries": 85,
+            "aries-taurus": 65,
+            "aries-gemini": 75,
+            "aries-cancer": 60,
+            "aries-leo": 90,
+            "aries-virgo": 55,
+            "aries-libra": 70,
+            "aries-scorpio": 65,
+            "aries-sagittarius": 85,
+            "aries-capricorn": 60,
+            "aries-aquarius": 75,
+            "aries-pisces": 55,
+            "taurus-aries": 65,
+            "taurus-taurus": 80,
+            "taurus-gemini": 60,
+            "taurus-cancer": 75,
+            "taurus-leo": 65,
+            "taurus-virgo": 85,
+            "taurus-libra": 70,
+            "taurus-scorpio": 80,
+            "taurus-sagittarius": 55,
+            "taurus-capricorn": 85,
+            "taurus-aquarius": 60,
+            "taurus-pisces": 75,
+            "gemini-aries": 75,
+            "gemini-taurus": 60,
+            "gemini-gemini": 75,
+            "gemini-cancer": 65,
+            "gemini-leo": 80,
+            "gemini-virgo": 65,
+            "gemini-libra": 85,
+            "gemini-scorpio": 60,
+            "gemini-sagittarius": 85,
+            "gemini-capricorn": 55,
+            "gemini-aquarius": 90,
+            "gemini-pisces": 65,
+            "cancer-aries": 60,
+            "cancer-taurus": 75,
+            "cancer-gemini": 65,
+            "cancer-cancer": 80,
+            "cancer-leo": 70,
+            "cancer-virgo": 75,
+            "cancer-libra": 65,
+            "cancer-scorpio": 85,
+            "cancer-sagittarius": 55,
+            "cancer-capricorn": 70,
+            "cancer-aquarius": 60,
+            "cancer-pisces": 85,
+            "leo-aries": 90,
+            "leo-taurus": 65,
+            "leo-gemini": 80,
+            "leo-cancer": 70,
+            "leo-leo": 85,
+            "leo-virgo": 60,
+            "leo-libra": 75,
+            "leo-scorpio": 70,
+            "leo-sagittarius": 85,
+            "leo-capricorn": 65,
+            "leo-aquarius": 75,
+            "leo-pisces": 60,
+            "virgo-aries": 55,
+            "virgo-taurus": 85,
+            "virgo-gemini": 65,
+            "virgo-cancer": 75,
+            "virgo-leo": 60,
+            "virgo-virgo": 80,
+            "virgo-libra": 65,
+            "virgo-scorpio": 75,
+            "virgo-sagittarius": 55,
+            "virgo-capricorn": 85,
+            "virgo-aquarius": 60,
+            "virgo-pisces": 75,
+            "libra-aries": 70,
+            "libra-taurus": 70,
+            "libra-gemini": 85,
+            "libra-cancer": 65,
+            "libra-leo": 75,
+            "libra-virgo": 65,
+            "libra-libra": 80,
+            "libra-scorpio": 65,
+            "libra-sagittarius": 75,
+            "libra-capricorn": 60,
+            "libra-aquarius": 85,
+            "libra-pisces": 70,
+            "scorpio-aries": 65,
+            "scorpio-taurus": 80,
+            "scorpio-gemini": 60,
+            "scorpio-cancer": 85,
+            "scorpio-leo": 70,
+            "scorpio-virgo": 75,
+            "scorpio-libra": 65,
+            "scorpio-scorpio": 85,
+            "scorpio-sagittarius": 60,
+            "scorpio-capricorn": 75,
+            "scorpio-aquarius": 65,
+            "scorpio-pisces": 85,
+            "sagittarius-aries": 85,
+            "sagittarius-taurus": 55,
+            "sagittarius-gemini": 85,
+            "sagittarius-cancer": 55,
+            "sagittarius-leo": 85,
+            "sagittarius-virgo": 55,
+            "sagittarius-libra": 75,
+            "sagittarius-scorpio": 60,
+            "sagittarius-sagittarius": 80,
+            "sagittarius-capricorn": 60,
+            "sagittarius-aquarius": 85,
+            "sagittarius-pisces": 65,
+            "capricorn-aries": 60,
+            "capricorn-taurus": 85,
+            "capricorn-gemini": 55,
+            "capricorn-cancer": 70,
+            "capricorn-leo": 65,
+            "capricorn-virgo": 85,
+            "capricorn-libra": 60,
+            "capricorn-scorpio": 75,
+            "capricorn-sagittarius": 60,
+            "capricorn-capricorn": 85,
+            "capricorn-aquarius": 70,
+            "capricorn-pisces": 75,
+            "aquarius-aries": 75,
+            "aquarius-taurus": 60,
+            "aquarius-gemini": 90,
+            "aquarius-cancer": 60,
+            "aquarius-leo": 75,
+            "aquarius-virgo": 60,
+            "aquarius-libra": 85,
+            "aquarius-scorpio": 65,
+            "aquarius-sagittarius": 85,
+            "aquarius-capricorn": 70,
+            "aquarius-aquarius": 85,
+            "aquarius-pisces": 70,
+            "pisces-aries": 55,
+            "pisces-taurus": 75,
+            "pisces-gemini": 65,
+            "pisces-cancer": 85,
+            "pisces-leo": 60,
+            "pisces-virgo": 75,
+            "pisces-libra": 70,
+            "pisces-scorpio": 85,
+            "pisces-sagittarius": 65,
+            "pisces-capricorn": 75,
+            "pisces-aquarius": 70,
+            "pisces-pisces": 85
+        };
+        
+        // Game state variables
+        let currentQuizQuestion = 0;
+        let quizScore = 0;
+        let memoryCards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let memoryScore = 0;
+        let puzzleState = [];
+        let emptyPosition = 8;
+        let puzzleMoves = 0;
+        let currentStoryIndex = 0;
+        
+        // DOM elements
+        const gameCards = document.querySelectorAll('.game-card');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close');
+        const backButton = document.getElementById('back-button');
+        
+        // Quiz elements
+        const startQuizBtn = document.getElementById('start-quiz');
+        const nextQuestionBtn = document.getElementById('next-question');
+        const quizQuestion = document.getElementById('quiz-question');
+        const quizOptions = document.getElementById('quiz-options');
+        const quizScoreEl = document.getElementById('quiz-score');
+        const quizMessage = document.getElementById('quiz-message');
+        
+        // Love calculator elements
+        const calculateLoveBtn = document.getElementById('calculate-love');
+        const resetCalculatorBtn = document.getElementById('reset-calculator');
+        const name1Input = document.getElementById('name1');
+        const name2Input = document.getElementById('name2');
+        const loveResult = document.getElementById('love-result');
+        const loveMessage = document.getElementById('love-message');
+        
+        // Memory game elements
+        const startMemoryBtn = document.getElementById('start-memory');
+        const resetMemoryBtn = document.getElementById('reset-memory');
+        const memoryGrid = document.getElementById('memory-grid');
+        const memoryScoreEl = document.getElementById('memory-score');
+        const memoryMessage = document.getElementById('memory-message');
+        
+        // Love puzzle elements
+        const startPuzzleBtn = document.getElementById('start-puzzle');
+        const resetPuzzleBtn = document.getElementById('reset-puzzle');
+        const puzzleGrid = document.getElementById('puzzle-grid');
+        const puzzleMovesEl = document.getElementById('puzzle-moves');
+        const puzzleMessage = document.getElementById('puzzle-message');
+        
+        // Love story elements
+        const nextStoryBtn = document.getElementById('next-story');
+        const storyText = document.getElementById('story-text');
+        
+        // Love compatibility elements
+        const checkCompatibilityBtn = document.getElementById('check-compatibility');
+        const resetCompatibilityBtn = document.getElementById('reset-compatibility');
+        const zodiac1Select = document.getElementById('zodiac1');
+        const zodiac2Select = document.getElementById('zodiac2');
+        const compatibilityResult = document.getElementById('compatibility-result');
+        const compatibilityMessage = document.getElementById('compatibility-message');
+        
+        // Event listeners
+        gameCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const game = this.getAttribute('data-game');
+                document.getElementById(`${game}-modal`).style.display = 'block';
+            });
+        });
+        
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'none';
+            });
+        });
+        
+        backButton.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+        
+        window.addEventListener('click', function(event) {
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+        
+        // Love Songs Quiz Functions
+        function startQuiz() {
+            currentQuizQuestion = 0;
+            quizScore = 0;
+            quizScoreEl.textContent = quizScore;
+            showQuizQuestion();
+            startQuizBtn.style.display = 'none';
+            nextQuestionBtn.style.display = 'none';
+        }
+        
+        function showQuizQuestion() {
+            if (currentQuizQuestion < loveSongsQuiz.length) {
+                const question = loveSongsQuiz[currentQuizQuestion];
+                quizQuestion.textContent = question.question;
+                quizOptions.innerHTML = '';
+                
+                question.options.forEach((option, index) => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.className = 'quiz-option';
+                    optionBtn.textContent = option;
+                    optionBtn.addEventListener('click', function() {
+                        checkQuizAnswer(index);
+                    });
+                    quizOptions.appendChild(optionBtn);
+                });
+            } else {
+                showQuizResult();
+            }
+        }
+        
+        function checkQuizAnswer(selectedIndex) {
+            const question = loveSongsQuiz[currentQuizQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach((option, index) => {
+                option.disabled = true;
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex && index !== question.correct) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            if (selectedIndex === question.correct) {
+                quizScore++;
+                quizScoreEl.textContent = quizScore;
+            }
+            
+            currentQuizQuestion++;
+            
+            if (currentQuizQuestion < loveSongsQuiz.length) {
+                nextQuestionBtn.style.display = 'flex';
+            } else {
+                setTimeout(showQuizResult, 1500);
+            }
+        }
+        
+        function showQuizResult() {
+            quizOptions.innerHTML = '';
+            const percentage = (quizScore / loveSongsQuiz.length) * 100;
+            
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Luar biasa! Kamu ahli lagu-lagu cinta! 🎵❤️';
+                createConfetti();
+            } else if (percentage >= 60) {
+                message = 'Bagus! Kamu cukup kenal lagu-lagu cinta! 😊';
+            } else if (percentage >= 40) {
+                message = 'Cukup baik, tapi masih perlu belajar lagi! 🎧';
+            } else {
+                message = 'Sepertinya kamu perlu dengar lagu-lagu cinta lebih banyak! 💔';
+            }
+            
+            quizQuestion.textContent = `Quiz selesai! Skor akhirmu: ${quizScore}/${loveSongsQuiz.length}`;
+            quizMessage.textContent = message;
+            startQuizBtn.style.display = 'flex';
+            startQuizBtn.innerHTML = '<i class="material-icons">refresh</i> Main Lagi';
+            nextQuestionBtn.style.display = 'none';
+        }
+        
+        // Love Calculator Functions
+        function calculateLove() {
+            const name1 = name1Input.value.trim();
+            const name2 = name2Input.value.trim();
+            
+            if (!name1 || !name2) {
+                loveMessage.textContent = 'Mohon masukkan kedua nama!';
+                return;
+            }
+            
+            // Simple love calculation based on names
+            let lovePercentage = 0;
+            
+            // Calculate based on name length
+            lovePercentage += (name1.length + name2.length) % 50;
+            
+            // Calculate based on common letters
+            const commonLetters = [];
+            for (let i = 0; i < name1.length; i++) {
+                if (name2.toLowerCase().includes(name1[i].toLowerCase()) && !commonLetters.includes(name1[i].toLowerCase())) {
+                    commonLetters.push(name1[i].toLowerCase());
+                }
+            }
+            lovePercentage += commonLetters.length * 5;
+            
+            // Add some randomness
+            lovePercentage += Math.floor(Math.random() * 20);
+            
+            // Ensure percentage is between 1-100
+            lovePercentage = Math.min(100, Math.max(1, lovePercentage));
+            
+            loveResult.textContent = `${lovePercentage}%`;
+            
+            let message = '';
+            if (lovePercentage >= 80) {
+                message = 'Wow! Kalian sangat cocok! Cinta kalian akan abadi! 💕';
+                createConfetti();
+            } else if (lovePercentage >= 60) {
+                message = 'Kalian cukup cocok! Ada potensi untuk hubungan yang baik! 😊';
+            } else if (lovePercentage >= 40) {
+                message = 'Kalian agak cocok, tapi perlu usaha lebih! 💪';
+            } else {
+                message = 'Kalian kurang cocok, tapi cinta bisa mengubah segalanya! 💔';
+            }
+            
+            loveMessage.textContent = message;
+        }
+        
+        function resetCalculator() {
+            name1Input.value = '';
+            name2Input.value = '';
+            loveResult.textContent = '0%';
+            loveMessage.textContent = '';
+        }
+        
+        // Memory Game Functions
+        function startMemoryGame() {
+            memoryScore = 0;
+            matchedPairs = 0;
+            flippedCards = [];
+            memoryScoreEl.textContent = memoryScore;
+            memoryMessage.textContent = '';
+            
+            // Create memory cards
+            const emojis = ['❤️', '💕', '💖', '💗', '💝', '💘', '💞', '💓'];
+            memoryCards = [...emojis, ...emojis];
+            
+            // Shuffle cards
+            memoryCards.sort(() => Math.random() - 0.5);
+            
+            // Create card elements
+            memoryGrid.innerHTML = '';
+            memoryCards.forEach((emoji, index) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.dataset.index = index;
+                card.dataset.emoji = emoji;
+                card.textContent = '?';
+                card.addEventListener('click', flipCard);
+                memoryGrid.appendChild(card);
+            });
+            
+            startMemoryBtn.style.display = 'none';
+            resetMemoryBtn.style.display = 'flex';
+        }
+        
+        function flipCard() {
+            if (flippedCards.length >= 2) return;
+            if (this.classList.contains('flipped')) return;
+            if (this.classList.contains('matched')) return;
+            
+            this.classList.add('flipped');
+            this.textContent = this.dataset.emoji;
+            flippedCards.push(this);
+            
+            if (flippedCards.length === 2) {
+                checkMemoryMatch();
+            }
+        }
+        
+        function checkMemoryMatch() {
+            const [card1, card2] = flippedCards;
+            
+            if (card1.dataset.emoji === card2.dataset.emoji) {
+                setTimeout(() => {
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    memoryScore += 10;
+                    memoryScoreEl.textContent = memoryScore;
+                    matchedPairs++;
+                    flippedCards = [];
+                    
+                    if (matchedPairs === 8) {
+                        showMemoryResult();
+                    }
+                }, 500);
+            } else {
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    card1.textContent = '?';
+                    card2.textContent = '?';
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+        
+        function showMemoryResult() {
+            let message = '';
+            if (memoryScore >= 70) {
+                message = 'Luar biasa! Memori kamu sangat tajam! 🧠💕';
+                createConfetti();
+            } else if (memoryScore >= 50) {
+                message = 'Bagus! Kamu memiliki memori yang baik! 😊';
+            } else if (memoryScore >= 30) {
+                message = 'Cukup baik, tapi masih bisa lebih baik! 💪';
+            } else {
+                message = 'Terus berlatih untuk meningkatkan memori kamu! 💔';
+            }
+            
+            memoryMessage.textContent = message;
+            startMemoryBtn.style.display = 'flex';
+            startMemoryBtn.innerHTML = '<i class="material-icons">refresh</i> Main Lagi';
+            resetMemoryBtn.style.display = 'none';
+        }
+        
+        function resetMemoryGame() {
+            memoryGrid.innerHTML = '';
+            memoryScore = 0;
+            matchedPairs = 0;
+            flippedCards = [];
+            memoryScoreEl.textContent = memoryScore;
+            memoryMessage.textContent = '';
+            startMemoryBtn.style.display = 'flex';
+            resetMemoryBtn.style.display = 'none';
+        }
+        
+        // Love Puzzle Functions
+        function startPuzzle() {
+            puzzleMoves = 0;
+            puzzleMovesEl.textContent = puzzleMoves;
+            puzzleMessage.textContent = '';
+            
+            // Initialize puzzle state (1-8 and empty)
+            puzzleState = [1, 2, 3, 4, 5, 6, 7, 8, ''];
+            emptyPosition = 8;
+            
+            // Shuffle puzzle
+            for (let i = 0; i < 100; i++) {
+                const validMoves = getValidMoves();
+                const randomMove = validMoves[Math.floor(Math.random() * validMoves.length)];
+                swapPuzzlePieces(randomMove, emptyPosition);
+                emptyPosition = randomMove;
+            }
+            
+            // Create puzzle elements
+            puzzleGrid.innerHTML = '';
+            puzzleState.forEach((value, index) => {
+                const piece = document.createElement('div');
+                piece.className = value === '' ? 'puzzle-piece empty' : 'puzzle-piece';
+                piece.dataset.index = index;
+                piece.textContent = value;
+                
+                if (value !== '') {
+                    piece.addEventListener('click', () => movePuzzlePiece(index));
+                }
+                
+                puzzleGrid.appendChild(piece);
+            });
+            
+            startPuzzleBtn.style.display = 'none';
+            resetPuzzleBtn.style.display = 'flex';
+        }
+        
+        function getValidMoves() {
+            const validMoves = [];
+            const row = Math.floor(emptyPosition / 3);
+            const col = emptyPosition % 3;
+            
+            // Check top
+            if (row > 0) validMoves.push(emptyPosition - 3);
+            // Check bottom
+            if (row < 2) validMoves.push(emptyPosition + 3);
+            // Check left
+            if (col > 0) validMoves.push(emptyPosition - 1);
+            // Check right
+            if (col < 2) validMoves.push(emptyPosition + 1);
+            
+            return validMoves;
+        }
+        
+        function movePuzzlePiece(index) {
+            const validMoves = getValidMoves();
+            
+            if (validMoves.includes(index)) {
+                swapPuzzlePieces(index, emptyPosition);
+                emptyPosition = index;
+                puzzleMoves++;
+                puzzleMovesEl.textContent = puzzleMoves;
+                
+                // Update puzzle display
+                updatePuzzleDisplay();
+                
+                // Check if puzzle is solved
+                if (checkPuzzleSolved()) {
+                    showPuzzleResult();
+                }
+            }
+        }
+        
+        function swapPuzzlePieces(index1, index2) {
+            const temp = puzzleState[index1];
+            puzzleState[index1] = puzzleState[index2];
+            puzzleState[index2] = temp;
+        }
+        
+        function updatePuzzleDisplay() {
+            const pieces = document.querySelectorAll('.puzzle-piece');
+            pieces.forEach((piece, index) => {
+                piece.className = puzzleState[index] === '' ? 'puzzle-piece empty' : 'puzzle-piece';
+                piece.textContent = puzzleState[index];
+                
+                if (puzzleState[index] !== '') {
+                    piece.onclick = () => movePuzzlePiece(index);
+                } else {
+                    piece.onclick = null;
+                }
+            });
+        }
+        
+        function checkPuzzleSolved() {
+            for (let i = 0; i < 8; i++) {
+                if (puzzleState[i] !== i + 1) return false;
+            }
+            return puzzleState[8] === '';
+        }
+        
+        function showPuzzleResult() {
+            let message = '';
+            if (puzzleMoves <= 30) {
+                message = 'Luar biasa! Kamu menyelesaikan puzzle dengan sangat efisien! 🧩💕';
+                createConfetti();
+            } else if (puzzleMoves <= 50) {
+                message = 'Bagus! Kamu memiliki kemampuan memecahkan masalah yang baik! 😊';
+            } else if (puzzleMoves <= 70) {
+                message = 'Cukup baik, tapi masih bisa lebih efisien! 💪';
+            } else {
+                message = 'Terus berlatih untuk meningkatkan kemampuan memecahkan masalah kamu! 💔';
+            }
+            
+            puzzleMessage.textContent = message;
+            startPuzzleBtn.style.display = 'flex';
+            startPuzzleBtn.innerHTML = '<i class="material-icons">refresh</i> Main Lagi';
+            resetPuzzleBtn.style.display = 'none';
+        }
+        
+        function resetPuzzle() {
+            puzzleGrid.innerHTML = '';
+            puzzleMoves = 0;
+            puzzleMovesEl.textContent = puzzleMoves;
+            puzzleMessage.textContent = '';
+            startPuzzleBtn.style.display = 'flex';
+            resetPuzzleBtn.style.display = 'none';
+        }
+        
+        // Love Story Functions
+        function showNextStory() {
+            currentStoryIndex = (currentStoryIndex + 1) % loveStories.length;
+            storyText.textContent = loveStories[currentStoryIndex];
+        }
+        
+        // Love Compatibility Functions
+        function checkCompatibility() {
+            const zodiac1 = zodiac1Select.value;
+            const zodiac2 = zodiac2Select.value;
+            
+            if (!zodiac1 || !zodiac2) {
+                compatibilityMessage.textContent = 'Mohon pilih kedua zodiak!';
+                return;
+            }
+            
+            const key1 = `${zodiac1}-${zodiac2}`;
+            const key2 = `${zodiac2}-${zodiac1}`;
+            
+            let percentage = 0;
+            if (zodiacCompatibility[key1]) {
+                percentage = zodiacCompatibility[key1];
+            } else if (zodiacCompatibility[key2]) {
+                percentage = zodiacCompatibility[key2];
+            } else {
+                percentage = Math.floor(Math.random() * 40) + 40; // Random between 40-80
+            }
+            
+            compatibilityResult.textContent = `${percentage}%`;
+            
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Wow! Kalian sangat cocok! Hubungan kalian akan harmonis! 💕';
+                createConfetti();
+            } else if (percentage >= 60) {
+                message = 'Kalian cukup cocok! Ada potensi untuk hubungan yang baik! 😊';
+            } else if (percentage >= 40) {
+                message = 'Kalian agak cocok, tapi perlu usaha lebih! 💪';
+            } else {
+                message = 'Kalian kurang cocok, tapi cinta bisa mengubah segalanya! 💔';
+            }
+            
+            compatibilityMessage.textContent = message;
+        }
+        
+        function resetCompatibility() {
+            zodiac1Select.value = '';
+            zodiac2Select.value = '';
+            compatibilityResult.textContent = '0%';
+            compatibilityMessage.textContent = '';
+        }
+        
+        // Confetti function for high scores
+        function createConfetti() {
+            const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 30);
+            }
+        }
+        
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.innerHTML = '❤️';
+                
+                // Random position
+                heart.style.left = Math.random() * 100 + '%';
+                
+                // Random size
+                const size = Math.random() * 20 + 10;
+                heart.style.fontSize = `${size}px`;
+                
+                // Random animation duration
+                const duration = Math.random() * 10 + 10;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+                
+                // Remove heart after animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }, 2000);
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+        });
+    </script>
+</body>
+</html>
