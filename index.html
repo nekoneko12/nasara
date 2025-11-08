@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untuk Nabila Sayang❤️</title>
+    <title>Nasara Website</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@500;600;700&family=Quicksand:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Merriweather:wght@400;700;900&family=Lora:wght@400;500;600&family=Nunito:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700;900&family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,8 +14,8 @@
         }
         
         body {
-            font-family: 'Nunito', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #c9c6ff 50%, #a1c4fd 75%, #c2e9fb 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
@@ -73,17 +73,19 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            justify-content: center;
         }
         
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             animation: fadeInDown 1s ease;
         }
         
@@ -91,314 +93,13 @@
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            color: #2c003e;
+            color: #fff;
             position: relative;
             display: inline-block;
             letter-spacing: 1px;
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #2c003e, transparent);
-        }
-        
-        .subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1a237e;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(255,255,255,0.5);
-            letter-spacing: 1px;
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-            width: 100%;
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .photo-slot {
-            aspect-ratio: 1/1;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        .photo-slot:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .photo-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .photo-slot:hover img {
-            transform: scale(1.05);
-        }
-        
-        .photo-placeholder {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .photo-placeholder span {
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        
-        .messages-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-        
-        .message-card {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .message-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .message-card:hover::before {
-            opacity: 1;
-        }
-        
-        .message-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .message-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        
-        .message-content {
-            display: none;
-            margin-top: 10px;
-            font-family: 'Lora', serif;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-        
-        .message-content.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        /* Individual message colors */
-        .message-card:nth-child(1) .message-title {
-            color: #e91e63;
-        }
-        
-        .message-card:nth-child(1) .message-content {
-            color: #c2185b;
-        }
-        
-        .message-card:nth-child(2) .message-title {
-            color: #673ab7;
-        }
-        
-        .message-card:nth-child(2) .message-content {
-            color: #512da8;
-        }
-        
-        .message-card:nth-child(3) .message-title {
-            color: #3f51b5;
-        }
-        
-        .message-card:nth-child(3) .message-content {
-            color: #303f9f;
-        }
-        
-        .message-card:nth-child(4) .message-title {
-            color: #009688;
-        }
-        
-        .message-card:nth-child(4) .message-content {
-            color: #00796b;
-        }
-        
-        .message-card:nth-child(5) .message-title {
-            color: #ff5722;
-        }
-        
-        .message-card:nth-child(5) .message-content {
-            color: #e64a19;
-        }
-        
-        .message-card:nth-child(6) .message-title {
-            color: #ff9800;
-        }
-        
-        .message-card:nth-child(6) .message-content {
-            color: #f57c00;
-        }
-        
-        .special-message {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            font-weight: 500;
-            line-height: 1.6;
-            color: #1a237e;
-            max-width: 90%;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-            transition: transform 0.3s ease;
-        }
-        
-        .special-message:hover {
-            transform: scale(1.02);
-        }
-        
-        .special-message::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-            animation: pulse 4s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(0.8);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
-        }
-        
-        .countdown {
-            margin: 30px 0;
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            width: 100%;
-        }
-        
-        .countdown-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #4a148c;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .time-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            min-width: 70px;
-            transition: transform 0.3s ease;
-        }
-        
-        .time-unit:hover {
-            transform: translateY(-3px);
-        }
-        
-        .time-value {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #311b92;
-        }
-        
-        .time-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            color: #512da8;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        
-        .anniversary-message {
-            display: none;
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            text-align: center;
-            margin: 30px 0;
-            color: #b71c1c;
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
             animation: glow 2s infinite alternate;
-            letter-spacing: 2px;
         }
         
         @keyframes glow {
@@ -410,30 +111,156 @@
             }
         }
         
-        footer {
-            margin-top: 30px;
-            padding: 20px;
-            text-align: center;
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
             width: 100%;
+        }
+        
+        .menu-item {
             background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 15px 15px 0 0;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 20px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
         }
         
-        .footer-message {
-            font-family: 'Karla', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #1a237e;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
-        .heart {
-            color: #000;
+        .menu-item:hover::before {
+            opacity: 1;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .menu-title {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
-            vertical-align: middle;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .menu-title i {
+            margin-right: 10px;
+        }
+        
+        .features-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        .mood-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            min-width: 250px;
+        }
+        
+        .mood-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .mood-text {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            transition: all 0.5s ease;
+        }
+        
+        .gombal-text {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .show-gombal {
+            opacity: 1;
+        }
+        
+        .instagram-link {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .instagram-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .instagram-link i {
+            font-size: 30px;
+            color: #fff;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(120%);
+            transition: transform 0.5s ease;
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
         }
         
         /* Responsive design */
@@ -442,72 +269,50 @@
                 font-size: 2.5rem;
             }
             
-            .subtitle {
-                font-size: 1.4rem;
+            .menu-container {
+                gap: 20px;
             }
             
-            .gallery {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
+            .menu-item {
+                min-width: 150px;
+                padding: 15px 20px;
             }
             
-            .messages-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            
-            .time-unit {
-                min-width: 60px;
-            }
-            
-            .time-value {
-                font-size: 1.5rem;
-            }
-            
-            .special-message {
+            .menu-title {
                 font-size: 1.2rem;
+            }
+            
+            .mood-button {
+                min-width: 200px;
+                padding: 15px 20px;
+            }
+            
+            .mood-text, .gombal-text {
+                font-size: 1rem;
             }
         }
         
         @media (max-width: 480px) {
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
+            h1 {
+                font-size: 2rem;
             }
             
-            .messages-container {
-                grid-template-columns: 1fr;
+            .menu-container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
             }
             
-            .countdown-timer {
-                gap: 10px;
+            .menu-item {
+                width: 80%;
             }
             
-            .time-unit {
-                min-width: 50px;
-                padding: 5px;
-            }
-            
-            .time-value {
-                font-size: 1.2rem;
-            }
-            
-            .time-label {
-                font-size: 0.8rem;
+            .mood-button {
+                width: 80%;
             }
         }
         
         /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -567,221 +372,120 @@
     
     <div class="container">
         <header>
-            <h1>Untuk Nabila Sayang❤️</h1>
-            <div class="subtitle">Dari Rapli untuk Nabila</div>
+            <h1>Welcome to Nasara Website</h1>
         </header>
         
-        <section class="gallery" id="gallery">
-            <!-- Photo slots will be created dynamically -->
-        </section>
-        
-        <section class="messages-container">
-            <div class="message-card" data-message="1">
-                <div class="message-title">Pesan 1 🤍</div>
-                <div class="message-content">Semangat sayangggkuuuu 🤍</div>
-            </div>
-            <div class="message-card" data-message="2">
-                <div class="message-title">Pesan 2 🤍</div>
-                <div class="message-content">kamu itu berhak bahagia, jangan biarin orang seenaknya ya ke kamu!🤍</div>
-            </div>
-            <div class="message-card" data-message="3">
-                <div class="message-title">Pesan 3 🤍</div>
-                <div class="message-content">ceritain dan kasih semua seneng kamu, bahagia kamu, sedih kamu, dan nangis kamu ke aku yaaa! jangan disimpen sendiri, aku cowo kamuuuu🤍</div>
-            </div>
-            <div class="message-card" data-message="4">
-                <div class="message-title">Pesan 4 🤍</div>
-                <div class="message-content">yuk bareng-bareng berjuang buat hubungan ini!, jangan sampe kalah sama ego, apalagi sampe orang lain atau temen kamu masuk buat ngatur hubungan kita!🤍</div>
-            </div>
-            <div class="message-card" data-message="5">
-                <div class="message-title">Pesan 5 🤍</div>
-                <div class="message-content">Love youuuu sayangkuuuu🤍</div>
-            </div>
-            <div class="message-card" data-message="6">
-                <div class="message-title">Pesan 6 🤍</div>
-                <div class="message-content">Jangan berubah lagi ya! tetep kaya hubungan sekarang dan diri kamu yang sekarang! 🤍</div>
-            </div>
-        </section>
-        
-        <div class="special-message">
-            Karena kamu, aku bisa semangat dan sabar ngejalanin semuanya, karena kamu, aku bisa ngehargain diri sendiri, dan karena kamu yang ngasih aku banyak pengalaman.
-        </div>
-        
-        <section class="countdown" id="countdown">
-            <div class="countdown-title">Menuju Hari Spesial Kita</div>
-            <div class="countdown-timer">
-                <div class="time-unit">
-                    <div class="time-value" id="days">00</div>
-                    <div class="time-label">Hari</div>
+        <section class="menu-container">
+            <div class="menu-item" id="gallery-menu">
+                <div class="menu-title">
+                    <i class="material-icons">photo_library</i>
+                    Our Gallery
                 </div>
-                <div class="time-unit">
-                    <div class="time-value" id="hours">00</div>
-                    <div class="time-label">Jam</div>
+            </div>
+            <div class="menu-item" id="minigame-menu">
+                <div class="menu-title">
+                    <i class="material-icons">sports_esports</i>
+                    Mini Game
                 </div>
-                <div class="time-unit">
-                    <div class="time-value" id="minutes">00</div>
-                    <div class="time-label">Menit</div>
-                </div>
-                <div class="time-unit">
-                    <div class="time-value" id="seconds">00</div>
-                    <div class="time-label">Detik</div>
+            </div>
+            <div class="menu-item" id="story-menu">
+                <div class="menu-title">
+                    <i class="material-icons">auto_stories</i>
+                    Our Story
                 </div>
             </div>
         </section>
         
-        <div class="anniversary-message" id="anniversary-message">
-            Happy Anniversary! 🎉💕
-        </div>
-        
-        <footer>
-            <div class="footer-message">Dari Rapli untuk Nabila</div>
-            <span class="heart">❤️</span>
-        </footer>
+        <section class="features-container">
+            <div class="mood-button" id="mood-button">
+                <div class="mood-text" id="mood-text">Pencet aku kalau kamu sedih atau badmood</div>
+                <div class="gombal-text" id="gombal-text"></div>
+            </div>
+        </section>
     </div>
     
+    <!-- Instagram Link -->
+    <a href="https://www.instagram.com/nwaaard_/" target="_blank" class="instagram-link">
+        <i class="material-icons">alternate_email</i>
+    </a>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
     <script>
-        // Photo URLs with both formats to try
-        const photoUrls = [
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
-                fallback: 'https://lh3.googleusercontent.com/d/1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
-                fallback: 'https://lh3.googleusercontent.com/d/13u22vw5-Fih5tpa0not0tMtnXjAh-u2-'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
-                fallback: 'https://lh3.googleusercontent.com/d/1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
-                fallback: 'https://lh3.googleusercontent.com/d/1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
-                fallback: 'https://lh3.googleusercontent.com/d/12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
-                fallback: 'https://lh3.googleusercontent.com/d/1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
-                fallback: 'https://lh3.googleusercontent.com/d/1tuhE4idPRsERI-xFltmax3xDG44vYhdj'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
-                fallback: 'https://lh3.googleusercontent.com/d/1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns'
-            },
-            {
-                primary: 'https://drive.google.com/uc?export=view&id=1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
-                fallback: 'https://lh3.googleusercontent.com/d/1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt'
-            }
+        // Kata-kata gombal random
+        const gombalTexts = [
+            "Kamu tau nggak kenapa aku suka liat langit? Karena langit itu biru, dan aku suka biru. Tapi aku lebih suka liat kamu.",
+            "Kamu itu seperti Google, karena kamu punya semua yang aku cari.",
+            "Kalau kamu adalah buku, aku akan baca kamu setiap hari dan tidak akan pernah bosan.",
+            "Aku nggak percaya sama love at first sight, tapi aku percaya sama smile at first sight, dan senyummu itu membuatku jatuh cinta.",
+            "Aku mau jadi pembunuh, tapi pembunuh siapa? Pembunuh rasa cemburu setiap ada yang dekat denganmu.",
+            "Kamu itu seperti bintang, jauh tapi tetap bersinar terang di hatiku.",
+            "Kalau kamu adalah angin, aku mau jadi pohon biar kamu bisa selalu lewat di dekatku.",
+            "Kamu itu seperti kopi, pahit di awal tapi manis di akhir, dan membuatku addicted.",
+            "Aku mau jin, tapi bukan jin yang bisa ngabulin apa saja, tapi jin yang bisa ngabulin semua keinginanmu.",
+            "Kamu itu seperti matahari, yang selalu membuat hariku cerah.",
+            "Kalau kamu adalah waktu, aku mau berhenti di detik ini, agar aku bisa selalu bersamamu.",
+            "Kamu itu seperti puzzle, sulit untuk dimengerti tapi seru untuk dipelajari.",
+            "Aku mau jadi pelangi, biar bisa mewarnai harimu yang mungkin sedang mendung.",
+            "Kalau kamu adalah buku, aku mau jadi bookmark, biar selalu ada di setiap halaman hidupmu.",
+            "Kamu itu seperti bunga, yang indah untuk dipandang dan wangi untuk dirasakan.",
+            "Aku mau jadi hujan, biar bisa membasahi hatimu yang mungkin sedang kering.",
+            "Kamu itu seperti cokelat, manis, lezat, dan membuatku addicted.",
+            "Kalau kamu adalah bulan, aku mau jadi bintang, biar bisa selalu bersinar di sampingmu."
         ];
         
-        // Create photo slots
-        function createPhotoSlots() {
-            const gallery = document.getElementById('gallery');
+        // Handle menu clicks
+        document.getElementById('gallery-menu').addEventListener('click', function() {
+            // Scroll to gallery section
+            window.location.href = 'gallery.html';
+        });
+        
+        document.getElementById('minigame-menu').addEventListener('click', function() {
+            // Go to minigame page
+            window.location.href = 'minigames.html';
+        });
+        
+        document.getElementById('story-menu').addEventListener('click', function() {
+            // Show notification
+            const notification = document.getElementById('notification');
+            notification.textContent = 'Our Story akan segera hadir!';
+            notification.classList.add('show');
             
-            for (let i = 0; i < photoUrls.length; i++) {
-                const photoSlot = document.createElement('div');
-                photoSlot.className = 'photo-slot';
-                photoSlot.id = `photo-${i+1}`;
-                
-                // Create image element
-                const img = document.createElement('img');
-                img.src = photoUrls[i].primary;
-                img.alt = `Photo ${i+1}`;
-                
-                // Create placeholder
-                const placeholder = document.createElement('div');
-                placeholder.className = 'photo-placeholder';
-                placeholder.innerHTML = '<i class="material-icons">add_photo_alternate</i><span>Loading...</span>';
-                
-                // Add elements to slot
-                photoSlot.appendChild(img);
-                photoSlot.appendChild(placeholder);
-                
-                // Handle image loading
-                img.onload = function() {
-                    placeholder.style.display = 'none';
-                };
-                
-                img.onerror = function() {
-                    // Try fallback URL
-                    const fallbackImg = new Image();
-                    fallbackImg.src = photoUrls[i].fallback;
-                    
-                    fallbackImg.onload = function() {
-                        img.src = photoUrls[i].fallback;
-                        placeholder.style.display = 'none';
-                    };
-                    
-                    fallbackImg.onerror = function() {
-                        img.style.display = 'none';
-                        placeholder.innerHTML = '<i class="material-icons">broken_image</i><span>Foto gagal dimuat</span>';
-                    };
-                };
-                
-                gallery.appendChild(photoSlot);
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        });
+        
+        // Handle mood button click
+        let gombalIndex = 0;
+        let resetTimer = null;
+        
+        document.getElementById('mood-button').addEventListener('click', function() {
+            const moodText = document.getElementById('mood-text');
+            const gombalText = document.getElementById('gombal-text');
+            
+            // Clear any existing timer
+            if (resetTimer) {
+                clearTimeout(resetTimer);
             }
-        }
-        
-        // Handle message card clicks
-        function setupMessageCards() {
-            const messageCards = document.querySelectorAll('.message-card');
             
-            messageCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const content = this.querySelector('.message-content');
-                    
-                    // Toggle current message
-                    content.classList.toggle('show');
-                    
-                    // Close other messages
-                    messageCards.forEach(otherCard => {
-                        if (otherCard !== this) {
-                            const otherContent = otherCard.querySelector('.message-content');
-                            otherContent.classList.remove('show');
-                        }
-                    });
-                });
-            });
-        }
-        
-        // Countdown timer
-        function setupCountdown() {
-            // Set the target date (17 December 2025, 00:00:00)
-            const targetDate = new Date('December 17, 2025 00:00:00').getTime();
+            // Get random gombal text
+            const randomIndex = Math.floor(Math.random() * gombalTexts.length);
+            gombalText.textContent = gombalTexts[randomIndex];
             
-            // Update the countdown every 1 second
-            const countdownInterval = setInterval(function() {
-                // Get today's date and time
-                const now = new Date().getTime();
-                
-                // Find the distance between now and the countdown date
-                const distance = targetDate - now;
-                
-                // Time calculations for days, hours, minutes and seconds
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Display the result
-                document.getElementById('days').innerText = days.toString().padStart(2, '0');
-                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-                
-                // If the countdown is finished, display a message
-                if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById('countdown').style.display = 'none';
-                    document.getElementById('anniversary-message').style.display = 'block';
-                }
-            }, 1000);
-        }
+            // Show gombal text
+            moodText.style.opacity = '0';
+            gombalText.classList.add('show-gombal');
+            
+            // Set new timer to reset after 10 seconds
+            resetTimer = setTimeout(() => {
+                moodText.style.opacity = '1';
+                gombalText.classList.remove('show-gombal');
+                resetTimer = null;
+            }, 10000);
+        });
         
         // Create floating hearts
         function createFloatingHearts() {
@@ -814,9 +518,6 @@
         
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            createPhotoSlots();
-            setupMessageCards();
-            setupCountdown();
             createFloatingHearts();
         });
     </script>
