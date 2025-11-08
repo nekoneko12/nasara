@@ -704,4 +704,378 @@
             * {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
-         
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Optimized animated background elements -->
+    <div class="bg-bubble bubble-1"></div>
+    <div class="bg-bubble bubble-2"></div>
+    <div class="bg-bubble bubble-3"></div>
+    
+    <!-- Optimized animated particles -->
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    
+    <!-- Optimized gradient overlay -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Floating hearts container -->
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <div class="container">
+        <header>
+            <div class="back-button" id="back-button">
+                <i class="material-icons">arrow_back</i>
+            </div>
+            <h1>Untuk Nabila Sayang❤️</h1>
+        </header>
+        
+        <section class="gallery" id="gallery">
+            <!-- Photo slots will be created dynamically -->
+        </section>
+        
+        <section class="messages-container">
+            <div class="message-card" data-message="1">
+                <div class="message-title">Pesan 1 🤍</div>
+                <div class="message-content">Semangat sayangggkuuuu 🤍</div>
+            </div>
+            <div class="message-card" data-message="2">
+                <div class="message-title">Pesan 2 🤍</div>
+                <div class="message-content">kamu itu berhak bahagia, jangan biarin orang seenaknya ya ke kamu!🤍</div>
+            </div>
+            <div class="message-card" data-message="3">
+                <div class="message-title">Pesan 3 🤍</div>
+                <div class="message-content">ceritain dan kasih semua seneng kamu, bahagia kamu, sedih kamu, dan nangis kamu ke aku yaaa! jangan disimpen sendiri, aku cowo kamuuuu🤍</div>
+            </div>
+            <div class="message-card" data-message="4">
+                <div class="message-title">Pesan 4 🤍</div>
+                <div class="message-content">yuk bareng-bareng berjuang buat hubungan ini!, jangan sampe kalah sama ego, apalagi sampe orang lain atau temen kamu masuk buat ngatur hubungan kita!🤍</div>
+            </div>
+            <div class="message-card" data-message="5">
+                <div class="message-title">Pesan 5 🤍</div>
+                <div class="message-content">Love youuuu sayangkuuuu🤍</div>
+            </div>
+            <div class="message-card" data-message="6">
+                <div class="message-title">Pesan 6 🤍</div>
+                <div class="message-content">Jangan berubah lagi ya! tetep kaya hubungan sekarang dan diri kamu yang sekarang! 🤍</div>
+            </div>
+        </section>
+        
+        <div class="special-message">
+            Karena kamu, aku bisa semangat dan sabar ngejalanin semuanya, karena kamu, aku bisa ngehargain diri sendiri, dan karena kamu yang ngasih aku banyak pengalaman.
+        </div>
+        
+        <section class="countdown" id="countdown">
+            <div class="countdown-title">Menuju Hari Spesial Kita 💕</div>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <div class="time-value" id="days">00</div>
+                    <div class="time-label">Hari</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="hours">00</div>
+                    <div class="time-label">Jam</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="minutes">00</div>
+                    <div class="time-label">Menit</div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-value" id="seconds">00</div>
+                    <div class="time-label">Detik</div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="anniversary-message" id="anniversary-message">
+            Happy Anniversary! 🎉💕
+        </div>
+        
+        <footer>
+            <div class="footer-message">dari Rapli untuk Nabila</div>
+            <span class="heart">❤️</span>
+        </footer>
+    </div>
+    
+    <!-- Modal for full-size image -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    
+    <script>
+        // Original photo URLs with multiple formats to try
+        const photoUrls = [
+            {
+                id: '1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
+                    'https://lh3.googleusercontent.com/d/1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe',
+                    'https://drive.google.com/thumbnail?id=1qtJSDk9Z84vjH3yPecfESHz34pZtQ7xe&sz=w1000'
+                ]
+            },
+            {
+                id: '13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
+                    'https://lh3.googleusercontent.com/d/13u22vw5-Fih5tpa0not0tMtnXjAh-u2-',
+                    'https://drive.google.com/thumbnail?id=13u22vw5-Fih5tpa0not0tMtnXjAh-u2-&sz=w1000'
+                ]
+            },
+            {
+                id: '1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
+                    'https://lh3.googleusercontent.com/d/1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4',
+                    'https://drive.google.com/thumbnail?id=1glDdn8llLk8YFqOAZYBPe1B93cHWzbe4&sz=w1000'
+                ]
+            },
+            {
+                id: '1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
+                    'https://lh3.googleusercontent.com/d/1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp',
+                    'https://drive.google.com/thumbnail?id=1I12_Xy_KNyUlA5n8UzY6scuFSkz73UJp&sz=w1000'
+                ]
+            },
+            {
+                id: '12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
+                    'https://lh3.googleusercontent.com/d/12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb',
+                    'https://drive.google.com/thumbnail?id=12d7FoFiZAloMPhyWlwHLtvRkMWfZLWlb&sz=w1000'
+                ]
+            },
+            {
+                id: '1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
+                    'https://lh3.googleusercontent.com/d/1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN',
+                    'https://drive.google.com/thumbnail?id=1LM1UTtDvjSbUkTgPwmxQ-XUwY8MT80nN&sz=w1000'
+                ]
+            },
+            {
+                id: '1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
+                    'https://lh3.googleusercontent.com/d/1tuhE4idPRsERI-xFltmax3xDG44vYhdj',
+                    'https://drive.google.com/thumbnail?id=1tuhE4idPRsERI-xFltmax3xDG44vYhdj&sz=w1000'
+                ]
+            },
+            {
+                id: '1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
+                    'https://lh3.googleusercontent.com/d/1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns',
+                    'https://drive.google.com/thumbnail?id=1HBuayx4R21OCJ4KCSBbOtMe_LptWq-Ns&sz=w1000'
+                ]
+            },
+            {
+                id: '1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
+                formats: [
+                    'https://drive.google.com/uc?export=view&id=1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
+                    'https://lh3.googleusercontent.com/d/1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt',
+                    'https://drive.google.com/thumbnail?id=1m9vI52i_IDD9JIRABkiNnv9vfaFaNdlt&sz=w1000'
+                ]
+            }
+        ];
+        
+        // Create photo slots
+        function createPhotoSlots() {
+            const gallery = document.getElementById('gallery');
+            
+            photoUrls.forEach((photo, index) => {
+                const photoSlot = document.createElement('div');
+                photoSlot.className = 'photo-slot';
+                photoSlot.id = `photo-${index+1}`;
+                
+                // Create loading overlay
+                const loadingOverlay = document.createElement('div');
+                loadingOverlay.className = 'loading-overlay';
+                
+                const spinner = document.createElement('div');
+                spinner.className = 'spinner';
+                loadingOverlay.appendChild(spinner);
+                
+                // Create image element
+                const img = document.createElement('img');
+                img.alt = `Photo ${index+1}`;
+                img.style.display = 'none';
+                
+                // Create placeholder
+                const placeholder = document.createElement('div');
+                placeholder.className = 'photo-placeholder';
+                placeholder.innerHTML = '<i class="material-icons">add_photo_alternate</i><span>Loading...</span>';
+                
+                // Add elements to slot
+                photoSlot.appendChild(loadingOverlay);
+                photoSlot.appendChild(img);
+                photoSlot.appendChild(placeholder);
+                
+                // Try loading image with different formats
+                let formatIndex = 0;
+                
+                function tryLoadImage() {
+                    if (formatIndex < photo.formats.length) {
+                        img.src = photo.formats[formatIndex];
+                        formatIndex++;
+                    } else {
+                        // All formats failed, show error
+                        loadingOverlay.style.display = 'none';
+                        img.style.display = 'none';
+                        placeholder.innerHTML = '<i class="material-icons">broken_image</i><span>Foto gagal dimuat</span>';
+                    }
+                }
+                
+                img.onload = function() {
+                    loadingOverlay.style.display = 'none';
+                    placeholder.style.display = 'none';
+                    img.style.display = 'block';
+                };
+                
+                img.onerror = function() {
+                    tryLoadImage();
+                };
+                
+                // Start with first format
+                tryLoadImage();
+                
+                // Add click event for modal
+                photoSlot.addEventListener('click', function() {
+                    const modal = document.getElementById('imageModal');
+                    const modalImg = document.getElementById('modalImage');
+                    
+                    modal.style.display = 'block';
+                    modalImg.src = img.src;
+                });
+                
+                gallery.appendChild(photoSlot);
+            });
+        }
+        
+        // Handle message card clicks
+        function setupMessageCards() {
+            const messageCards = document.querySelectorAll('.message-card');
+            
+            messageCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const content = this.querySelector('.message-content');
+                    const content = this.querySelector('.message-content');
+                    
+                    // Toggle current message
+                    content.classList.toggle('show');
+                    
+                    // Close other messages
+                    messageCards.forEach(otherCard => {
+                        if (otherCard !== this) {
+                            const otherContent = otherCard.querySelector('.message-content');
+                            otherContent.classList.remove('show');
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Countdown timer
+        function setupCountdown() {
+            // Set the target date (17 December 2025, 00:00:00)
+            const targetDate = new Date('December 17, 2025 00:00:00').getTime();
+            
+            // Update the countdown every 1 second
+            const countdownInterval = setInterval(function() {
+                // Get today's date and time
+                const now = new Date().getTime();
+                
+                // Find the distance between now and the countdown date
+                const distance = targetDate - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result
+                document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+                
+                // If the countdown is finished, display a message
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('countdown').style.display = 'none';
+                    document.getElementById('anniversary-message').style.display = 'block';
+                }
+            }, 1000);
+        }
+        
+        // Modal close functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        // Back button functionality - Fixed
+        document.addEventListener('DOMContentLoaded', function() {
+            const backButton = document.getElementById('back-button');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+        
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.innerHTML = '❤️';
+                
+                // Random position
+                heart.style.left = Math.random() * 100 + '%';
+                
+                // Random size
+                const size = Math.random() * 20 + 10;
+                heart.style.fontSize = `${size}px`;
+                
+                // Random animation duration
+                const duration = Math.random() * 10 + 10;
+                heart.style.animationDuration = `${duration}s`;
+                
+                heartsContainer.appendChild(heart);
+                
+                // Remove heart after animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }, 2000);
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createPhotoSlots();
+            setupMessageCards();
+            setupCountdown();
+            createFloatingHearts();
+        });
+    </script>
+</body>
+</html>
