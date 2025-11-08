@@ -704,6 +704,7 @@
             * {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -963,7 +964,6 @@
             messageCards.forEach(card => {
                 card.addEventListener('click', function() {
                     const content = this.querySelector('.message-content');
-                    const content = this.querySelector('.message-content');
                     
                     // Toggle current message
                     content.classList.toggle('show');
@@ -1031,6 +1031,7 @@
         // Back button functionality - Fixed
         document.addEventListener('DOMContentLoaded', function() {
             const backButton = document.getElementById('back-button');
+            
             if (backButton) {
                 backButton.addEventListener('click', function(e) {
                     e.preventDefault();
